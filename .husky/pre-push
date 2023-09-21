@@ -1,0 +1,14 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "Running pre-push hook..."
+
+yarn lint && yarn jest --bail
+if [ $? -ne 0 ]; then
+  echo "Pre-push hook failed! Aborting push..."
+  exit 1
+fi
+
+echo "\n🎉 \033[0;32mEverything seems to be correct! Good job!\033[0m \n"
+
+exit 0
