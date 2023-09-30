@@ -1,7 +1,12 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+import { render, screen } from '@testing-library/react'
 import React from 'react'
+
 import Home from '.'
 
 describe('<Home />', () => {
-  it.todo('TODO TEST INDEX')
+  it('should render Home correctly', () => {
+    render(<Home />)
+
+    expect(screen.getByText('sandevistan')).toBeInTheDocument()
+  })
 })
