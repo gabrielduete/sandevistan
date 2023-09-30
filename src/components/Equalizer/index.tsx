@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
-
 import Sound from 'react-sound'
 
-import * as S from './styles'
 import { settings } from './Equalizer.data'
+import * as S from './styles'
 
 const Equalizer = () => {
   const [isOpen, setIsOpen] = useState<boolean>(true)
