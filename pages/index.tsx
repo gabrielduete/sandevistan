@@ -20,7 +20,7 @@ const Home = () => {
 
   return (
     <>
-      <Sound playStatus={Sound.status.PLAYING} {...settingsSound} />
+      <Sound playStatus='PLAYING' {...settingsSound} />
       <S.Wrapper>
         <S.Content>
           <S.Title ref={glitch.ref}>sandevistan</S.Title>

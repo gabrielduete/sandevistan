@@ -9,10 +9,7 @@ const Equalizer = () => {
 
   return (
     <S.Wrapper onClick={() => setIsOpen(!isOpen)}>
-      <Sound
-        playStatus={isOpen ? Sound.status.PLAYING : Sound.status.PAUSED}
-        {...settings}
-      />
+      <Sound playStatus={isOpen ? 'PLAYING' : 'PAUSED'} {...settings} />
       {isOpen ? (
         <>
           <S.Line data-testid='equalizer_line' />
