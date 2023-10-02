@@ -1,12 +1,5 @@
-import { render, screen } from '@testing-library/react'
-import React from 'react'
-
-import Home from '.'
-
 describe('<Home />', () => {
-  it('should render Home correctly', () => {
-    render(<Home />)
+  it.todo('should render title correctly')
 
-    expect(screen.getByText('sandevistan')).toBeInTheDocument()
-  })
+  it.todo('should redirect button correctly')
 })

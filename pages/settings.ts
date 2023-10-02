@@ -3,10 +3,3 @@ export const settingsSound = {
   playbackRate: 2,
   volume: 10,
 }
-
-export const settingsGlitch = {
-  glitchTimeSpan: {
-    start: 0.4,
-    end: 0.7,
-  },
-}
