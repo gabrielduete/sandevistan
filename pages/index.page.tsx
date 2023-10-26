@@ -5,9 +5,9 @@ import { useGlitch } from 'react-powerglitch'
 import Sound from 'react-sound'
 
 import Equalizer from '../src/components/Equalizer'
-import * as S from '../src/styles/stylesHome'
 import { SoundClickButton, SoundGlitch } from '../src/utils/Sounds'
 import { settingsSound } from '../src/utils/settingsHome'
+import * as S from './styles'
 
 const Home: NextPage = () => {
   const glitch = useGlitch()

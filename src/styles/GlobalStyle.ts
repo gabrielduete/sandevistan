@@ -10,6 +10,10 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Raleway', sans-serif;
   }
 
+  html{
+    background-color: var(--green-dark);
+  }
+
   :root{
     // Colors
     --black: #21272E;
