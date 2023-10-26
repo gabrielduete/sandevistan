@@ -5,11 +5,11 @@ export const items = [
   },
   {
     name: 'Github',
-    href: 'https://twitter.com/GabrielDuetee',
+    href: 'https://github.com/gabrielduete',
   },
   {
     name: 'Twitter(X)',
-    href: 'https://www.linkedin.com/in/gabrielduete/',
+    href: 'https://twitter.com/GabrielDuetee',
   },
   {
     name: 'DEV Community',
