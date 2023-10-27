@@ -1,17 +1,17 @@
 import { items } from './Footer.data'
+import * as S from './styles'
 
 const Footer = () => {
   return (
-    <footer>
-      Footer
+    <S.Footer>
       {items.map(({ name, href }, idx) => {
         return (
-          <a href={href} key={idx}>
+          <S.Link href={href} target='_blank' key={idx}>
             {name}
-          </a>
+          </S.Link>
         )
       })}
-    </footer>
+    </S.Footer>
   )
 }
 
