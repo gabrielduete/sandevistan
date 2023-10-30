@@ -13,8 +13,9 @@ export const Header = styled.header`
   padding-left: var(--spacing-basic);
 `
 
-export const Link = styled.a`
-  color: var(--green-white);
+export const Link = styled.a<{ isPath: boolean }>`
+  color: ${({ isPath }) =>
+    isPath ? 'color: var(--white)' : 'var(--green-white)'};
   cursor: pointer;
   text-decoration: none;
   ${AnimationHoverLine}
