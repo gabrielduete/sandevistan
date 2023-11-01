@@ -12,6 +12,10 @@ const GlobalStyle = createGlobalStyle`
 
   html{
     background-color: var(--green-dark);
+
+    ::-webkit-scrollbar {
+      display: none; 
+    }
   }
 
   :root{

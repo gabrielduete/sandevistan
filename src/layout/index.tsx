@@ -9,15 +9,13 @@ type LayoutProps = {
   children: ReactNode | ReactNode[]
 }
 
-const Layout = ({ children }: LayoutProps) => {
-  return (
-    <S.Container>
-      <Header />
-      <NavBar />
-      <S.WrapperContent>{children}</S.WrapperContent>
-      <Footer />
-    </S.Container>
-  )
-}
+const Layout = ({ children }: LayoutProps) => (
+  <S.Container>
+    <Header />
+    <NavBar />
+    <S.WrapperContent>{children}</S.WrapperContent>
+    <Footer />
+  </S.Container>
+)
 
 export default Layout

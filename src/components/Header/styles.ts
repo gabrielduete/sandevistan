@@ -11,6 +11,10 @@ export const Header = styled.header`
   height: 60px;
   background-color: var(--green);
   padding-left: var(--spacing-basic);
+
+  position: fixed;
+  top: 0;
+  left: 0;
 `
 
 export const Link = styled.a<{ isPath: boolean }>`

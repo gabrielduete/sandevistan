@@ -1,11 +1,13 @@
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
+import TextsStyle from '~/src/styles/TextsStyle'
 
 import GlobalStyle from '../src/styles/GlobalStyle'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
+      <TextsStyle />
       <GlobalStyle />
       <Head>
         <title>sandevistan</title>
