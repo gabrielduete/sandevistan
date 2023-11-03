@@ -1,5 +1,7 @@
+import * as S from './styles'
+
 const NavBar = () => {
-  return <nav>nav bar</nav>
+  return <S.Wrapper>aSDPLDFLDFPOPDFKOPDFKOP</S.Wrapper>
 }
 
 export default NavBar
