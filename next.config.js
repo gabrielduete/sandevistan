@@ -5,6 +5,9 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
+  images: {
+    domains: ['cdn.discordapp.com'],
+  },
   pageExtensions: ['page.jsx', 'page.js', 'page.tsx', 'page.ts'],
 }
 

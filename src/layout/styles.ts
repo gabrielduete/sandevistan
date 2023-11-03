@@ -10,9 +10,8 @@ export const Container = styled.main`
 export const WrapperContent = styled.main`
   width: 100%;
   max-width: ${breakpoints.Desktop};
-  margin: 0 auto;
+  margin: 70px auto;
   word-wrap: break-word;
-  margin-bottom: 80px;
 
   @media (max-width: ${breakpoints.Tablet}) {
     padding: 0 var(--spacing-basic);
