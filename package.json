@@ -37,7 +37,7 @@
     "@mui/icons-material": "^5.14.11",
     "@mui/material": "^5.14.11",
     "@types/react-sound": "^1.2.4",
-    "axios": "^1.5.1",
+    "axios": "^1.6.0",
     "next": "12.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
