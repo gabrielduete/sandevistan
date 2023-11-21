@@ -29,6 +29,7 @@ const GlobalStyle = createGlobalStyle`
     --white: #FFFFFF;
 
     // Spacings
+    --spacing-basic-small: 6px;
     --spacing-basic: 16px;
     --spacing-medium: 24px;
     --spacing-xmedium: 36px;

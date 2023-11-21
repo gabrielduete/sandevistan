@@ -12,8 +12,10 @@ type LayoutProps = {
 const Layout = ({ children }: LayoutProps) => (
   <S.Container>
     <Header />
-    <NavBar />
-    <S.WrapperContent>{children}</S.WrapperContent>
+    <S.WrapperContent>
+      <NavBar />
+      <S.Content>{children}</S.Content>
+    </S.WrapperContent>
     <Footer />
   </S.Container>
 )
