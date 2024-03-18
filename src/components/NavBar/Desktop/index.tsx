@@ -1,11 +1,11 @@
 import { useState } from 'react'
 
-import { SoundClickButton } from '../../../src/utils/Sounds/index'
-import Equalizer from '../Equalizer'
-import { navBarMock } from './Navbar.mock'
+import { SoundClickButton } from '../../../utils/Sounds/index'
+import Equalizer from '../../Equalizer'
+import { navBarMock } from '../Navbar.mock'
 import * as S from './styles'
 
-const NavBar = () => {
+const DesktopNavBar = () => {
   const [isOpen, setIsOpen] = useState(true)
 
   const closeNavBar = () => {
@@ -36,4 +36,4 @@ const NavBar = () => {
   )
 }
 
-export default NavBar
+export default DesktopNavBar

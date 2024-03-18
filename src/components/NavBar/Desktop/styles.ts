@@ -1,6 +1,7 @@
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import styled from 'styled-components'
+import medias from '~/src/enums/medias'
 
 const createIconStyles = Icon => styled(Icon)`
   width: 35px;
@@ -21,6 +22,10 @@ export const Wrapper = styled.nav<{ showNavBar: boolean }>`
   margin-top: 70px;
   overflow-y: auto;
   display: ${({ showNavBar }) => !showNavBar && 'none'};
+
+  @media (max-width: ${medias.maxTablet}) {
+    display: none;
+  }
 `
 
 export const WrapperColapsed = styled.nav<{ showNavBar: boolean }>`

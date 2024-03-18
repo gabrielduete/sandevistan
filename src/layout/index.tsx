@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 
 import Footer from '../components/Footer'
 import Header from '../components/Header'
-import NavBar from '../components/NavBar'
+import DesktopNavbar from '../components/NavBar/Desktop'
 import * as S from './styles'
 
 type LayoutProps = {
@@ -13,7 +13,7 @@ const Layout = ({ children }: LayoutProps) => (
   <S.Container>
     <Header />
     <S.WrapperContent>
-      <NavBar />
+      <DesktopNavbar />
       <S.Content>{children}</S.Content>
     </S.WrapperContent>
     <Footer />
