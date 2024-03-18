@@ -43,6 +43,10 @@ export const WrapperColapsed = styled.nav<{ showNavBar: boolean }>`
   background-color: var(--green);
   border: 1px solid var(--green-white);
   display: ${({ showNavBar }) => !showNavBar && 'none'};
+
+  @media (max-width: ${medias.maxTablet}) {
+    display: none;
+  }
 `
 
 export const NavBar = styled.div`
