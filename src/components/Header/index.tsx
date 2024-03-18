@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
 
+import MobileNavBar from '../NavBar/Mobile'
 import { items } from './Header.data'
 import * as S from './styles'
 
@@ -8,15 +9,18 @@ const Header = () => {
 
   return (
     <S.Header>
-      {items.map(({ name, href }) => {
-        const isPath = router?.pathname === href
+      <S.WrapperLinks>
+        {items.map(({ name, href }) => {
+          const isPath = router?.pathname === href
 
-        return (
-          <S.Link href={href} key={name} isPath={isPath}>
-            {name}
-          </S.Link>
-        )
-      })}
+          return (
+            <S.Link href={href} key={name} isPath={isPath}>
+              {name}
+            </S.Link>
+          )
+        })}
+      </S.WrapperLinks>
+      <MobileNavBar />
     </S.Header>
   )
 }

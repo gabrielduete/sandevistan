@@ -1,11 +1,17 @@
 export const navBarMock = [
   {
-    name: 'About',
+    name: 'Go',
   },
   {
     name: 'React',
   },
   {
     name: 'Nextjs',
+  },
+  {
+    name: 'Vue',
+  },
+  {
+    name: 'React',
   },
 ]

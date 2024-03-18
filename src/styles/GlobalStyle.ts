@@ -35,6 +35,7 @@ const GlobalStyle = createGlobalStyle`
     --spacing-xmedium: 36px;
 
     // Fonts
+    --font-small: 16px;
     --font-medium: 24px;
     --font-large: 96px;
   }

@@ -1,9 +1,13 @@
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
+import { SvgIconProps } from '@mui/material'
+import React from 'react'
 import styled from 'styled-components'
 import medias from '~/src/enums/medias'
 
-const createIconStyles = Icon => styled(Icon)`
+const createIconStyles = (Icon: React.ComponentType<SvgIconProps>) => styled(
+  Icon
+)`
   width: 35px;
   height: 35px;
   cursor: pointer;
@@ -83,7 +87,7 @@ export const Item = styled.div`
 `
 
 export const Link = styled.a`
-  font-size: 16px;
+  font-size: var(--font-small);
   padding-left: var(--spacing-basic);
 `
 

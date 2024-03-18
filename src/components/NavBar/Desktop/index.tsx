@@ -17,8 +17,8 @@ const DesktopNavBar = () => {
     <>
       <S.Wrapper showNavBar={isOpen}>
         <S.NavBar>
-          {navBarMock.map(({ name }) => (
-            <S.Item key={name}>
+          {navBarMock.map(({ name }, idx) => (
+            <S.Item key={idx}>
               <S.Link>{name}</S.Link>
             </S.Item>
           ))}
