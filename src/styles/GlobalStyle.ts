@@ -29,11 +29,13 @@ const GlobalStyle = createGlobalStyle`
     --white: #FFFFFF;
 
     // Spacings
+    --spacing-basic-small: 6px;
     --spacing-basic: 16px;
     --spacing-medium: 24px;
     --spacing-xmedium: 36px;
 
     // Fonts
+    --font-small: 16px;
     --font-medium: 24px;
     --font-large: 96px;
   }

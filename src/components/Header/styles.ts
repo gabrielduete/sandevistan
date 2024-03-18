@@ -6,15 +6,22 @@ export const Header = styled.header`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: var(--spacing-basic);
+  justify-content: space-between;
   width: 100%;
   height: 60px;
   background-color: var(--green);
-  padding-left: var(--spacing-basic);
+  padding: 0 var(--spacing-basic);
 
   position: fixed;
   top: 0;
   left: 0;
+`
+
+export const WrapperLinks = styled.div`
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-basic);
 `
 
 export const Link = styled.a<{ isPath: boolean }>`

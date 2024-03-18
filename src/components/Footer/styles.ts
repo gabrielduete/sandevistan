@@ -12,7 +12,6 @@ export const Footer = styled.footer`
   max-height: auto;
   min-height: 50px;
   background-color: var(--green);
-
   position: fixed;
   left: 0;
   bottom: 0;

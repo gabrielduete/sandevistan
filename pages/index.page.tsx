@@ -19,13 +19,18 @@ const Home: NextPage = () => {
     return () => clearInterval(timer)
   }, [])
 
+  const redirectToAbout = () => {
+    SoundClickButton()
+    window.open('/about', '_self', 'noreferrer')
+  }
+
   return (
     <>
       <Sound playStatus='PLAYING' {...settingsSound} />
       <S.Wrapper>
         <S.Content>
           <S.Title ref={glitch.ref}>sandevistan</S.Title>
-          <S.Link onClick={() => SoundClickButton()}>
+          <S.Link onClick={redirectToAbout}>
             explore <ArrowRightAltIcon />
           </S.Link>
         </S.Content>
