@@ -1,6 +1,5 @@
 import styled from 'styled-components'
-
-import AnimationHoverLine from '../../styles/AnimationHoverLine'
+import AnimationHoverLine from '~/src/styles/AnimationHoverLine'
 
 export const Header = styled.header`
   display: flex;

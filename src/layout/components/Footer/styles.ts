@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import AnimationHoverLine from '../../styles/AnimationHoverLine'
+import AnimationHoverLine from '../../../styles/AnimationHoverLine'
 
 export const Footer = styled.footer`
   display: flex;

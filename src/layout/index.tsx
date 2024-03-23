@@ -1,8 +1,8 @@
 import { ReactNode } from 'react'
 
-import Footer from '../components/Footer'
-import Header from '../components/Header'
-import DesktopNavbar from '../components/NavBar/Desktop'
+import Footer from './components/Footer'
+import Header from './components/Header'
+import DesktopNavbar from './components/NavBar/Desktop'
 import * as S from './styles'
 
 type LayoutProps = {
