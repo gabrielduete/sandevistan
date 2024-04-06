@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 `
 
 export const Line = styled.div`
-  width: 6px;
+  width: var(--spacing-basic-small);
   background-color: var(--white);
   margin: 0 2px;
   animation: equalizer 1.9s steps(20, end) infinite;

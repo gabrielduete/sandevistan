@@ -1,7 +1,7 @@
 import { useState } from 'react'
+import Equalizer from '~/src/components/Equalizer'
+import { SoundClickButton } from '~/src/utils/Sounds'
 
-import { SoundClickButton } from '../../../utils/Sounds/index'
-import Equalizer from '../../Equalizer'
 import { navBarMock } from '../Navbar.mock'
 import * as S from './styles'
 

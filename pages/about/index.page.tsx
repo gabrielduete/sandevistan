@@ -1,4 +1,5 @@
-import Layout from '../../src/layout/index'
+import Layout from '~/src/layout'
+
 import * as S from './styles'
 
 const About = () => {
