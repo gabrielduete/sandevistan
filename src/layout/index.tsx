@@ -1,5 +1,6 @@
 import { ReactNode } from 'react'
 
+import Breadcrumb from './components/Breadcrumb'
 import Footer from './components/Footer'
 import Header from './components/Header'
 import DesktopNavbar from './components/NavBar/Desktop'
@@ -14,7 +15,10 @@ const Layout = ({ children }: LayoutProps) => (
     <Header />
     <S.WrapperContent>
       <DesktopNavbar />
-      <S.Content>{children}</S.Content>
+      <S.Content>
+        <Breadcrumb />
+        {children}
+      </S.Content>
     </S.WrapperContent>
     <Footer />
   </S.Container>
