@@ -5,10 +5,12 @@ import LOCALSTORAGES from '~/src/enums/localstorages'
 import { STATUS_SOUND, settings } from './Equalizer.data'
 import * as S from './styles'
 
-type StatusSound = 'PLAYING' | 'PAUSED'
+export type StatusSound = 'PLAYING' | 'PAUSED'
 
 const Equalizer = () => {
   const [status, setStatus] = useState<StatusSound>('PLAYING')
+
+  const isPlaying = status === STATUS_SOUND.PLAYING
 
   useEffect(() => {
     const storedStatus = localStorage.getItem(
@@ -19,10 +21,9 @@ const Equalizer = () => {
   }, [])
 
   const toggleStatus = () => {
-    const newStatus: StatusSound | string =
-      status === STATUS_SOUND.PLAYING
-        ? STATUS_SOUND.PAUSED
-        : STATUS_SOUND.PLAYING
+    const newStatus: StatusSound = isPlaying
+      ? STATUS_SOUND.PAUSED
+      : STATUS_SOUND.PLAYING
 
     localStorage.setItem(LOCALSTORAGES.BG_SOUND, newStatus)
     setStatus(newStatus)
@@ -32,7 +33,7 @@ const Equalizer = () => {
     <S.Wrapper onClick={toggleStatus}>
       <Sound playStatus={status} {...settings} />
 
-      {status === STATUS_SOUND.PLAYING ? (
+      {isPlaying ? (
         <>
           <S.Line data-testid='equalizer_line' />
           <S.Line />

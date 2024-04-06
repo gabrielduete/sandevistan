@@ -7,4 +7,4 @@ export const settings = {
 export const STATUS_SOUND = {
   PLAYING: 'PLAYING',
   PAUSED: 'PAUSED',
-}
+} as const
