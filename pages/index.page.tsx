@@ -2,13 +2,8 @@ import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt'
 import type { NextPage } from 'next'
 import { useEffect } from 'react'
 import { useGlitch } from 'react-powerglitch'
-import Sound from 'react-sound'
 import Equalizer from '~/src/components/Equalizer'
-import {
-  SoundClickButton,
-  SoundGlitch,
-  settingsSound,
-} from '~/src/utils/sounds'
+import { SoundClickButton, SoundGlitch } from '~/src/utils/sounds'
 
 import * as S from './styles'
 
@@ -19,17 +14,18 @@ const Home: NextPage = () => {
     const timer = setInterval(() => {
       SoundGlitch()
     }, 2090)
+
     return () => clearInterval(timer)
   }, [])
 
   const redirectToAbout = () => {
     SoundClickButton()
+
     window.open('/about', '_self', 'noreferrer')
   }
 
   return (
     <>
-      <Sound playStatus='PLAYING' {...settingsSound} />
       <S.Wrapper>
         <S.Content>
           <S.Title ref={glitch.ref}>sandevistan</S.Title>
