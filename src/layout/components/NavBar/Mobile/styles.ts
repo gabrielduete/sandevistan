@@ -3,7 +3,7 @@ import MenuIcon from '@mui/icons-material/Menu'
 import { SvgIconProps } from '@mui/material'
 import React from 'react'
 import styled from 'styled-components'
-import medias from '~/src/enums/medias'
+import { breakpoints } from '~/src/enums/breakpoints'
 
 type addStyleIcon = {
   Icon: React.ComponentType<SvgIconProps>
@@ -22,7 +22,7 @@ const addStyledIcon = ({ Icon, alignSelfEnd }: addStyleIcon) => styled(Icon)`
 `
 
 export const Container = styled.nav`
-  @media (min-width: ${medias.maxTablet}) {
+  @media (min-width: ${breakpoints.Desktop}) {
     display: none;
   }
 `

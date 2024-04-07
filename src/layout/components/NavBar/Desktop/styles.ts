@@ -3,7 +3,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import { SvgIconProps } from '@mui/material'
 import React from 'react'
 import styled from 'styled-components'
-import medias from '~/src/enums/medias'
+import { breakpoints } from '~/src/enums/breakpoints'
 
 const createIconStyles = (Icon: React.ComponentType<SvgIconProps>) => styled(
   Icon
@@ -27,7 +27,7 @@ export const Wrapper = styled.nav<{ showNavBar: boolean }>`
   overflow-y: auto;
   display: ${({ showNavBar }) => !showNavBar && 'none'};
 
-  @media (max-width: ${medias.maxTablet}) {
+  @media (max-width: ${breakpoints.Desktop}) {
     display: none;
   }
 `
@@ -44,7 +44,7 @@ export const WrapperColapsed = styled.nav<{ showNavBar: boolean }>`
   border: 1px solid var(--green-white);
   display: ${({ showNavBar }) => !showNavBar && 'none'};
 
-  @media (max-width: ${medias.maxTablet}) {
+  @media (max-width: ${breakpoints.Desktop}) {
     display: none;
   }
 `

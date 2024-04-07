@@ -10,10 +10,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <GlobalStyle />
       <Head>
         <title>sandevistan</title>
-        <link
-          rel='icon'
-          href='https://cdn.discordapp.com/attachments/778024116140769331/1157476264165249135/logo.png?ex=6518bf46&is=65176dc6&hm=8a17328726bd0b87caf469a81abc88716decf38c4fab756e3bc181fe08b0b5c3&'
-        />
+        <link rel='icon' href='/assets/images/logo.png' />
       </Head>
       <Component {...pageProps} />
     </>

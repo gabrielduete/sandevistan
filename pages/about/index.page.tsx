@@ -15,7 +15,7 @@ const About = () => {
             page. It will be automatically updated whenever I make any changes.
           </p>
           <S.Image
-            src='https://cdn.discordapp.com/attachments/778024116140769331/1169037507028066365/SandevistanApogee.webp?ex=6553f205&is=65417d05&hm=cc4b60e4129c26e12d1e2bbe59f163a06f04bfb44e0af0d14c15f44cd8e64e57&'
+            src='/assets/images/sandevistan.png'
             alt='Militech apogee Sandevistan'
           />
           <p>
