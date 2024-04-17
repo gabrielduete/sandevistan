@@ -1,9 +1,14 @@
+import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
-const usePages = (id?: string) => {
+const usePages = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [hasError, setHasError] = useState(false)
   const [pages, setPages] = useState([])
+
+  const router = useRouter()
+
+  const id = router.query.id
 
   useEffect(() => {
     const getData = async () => {
@@ -16,10 +21,9 @@ const usePages = (id?: string) => {
 
         const data = await response.json()
 
-        setPages(data)
+        setPages(data.results)
       } catch (error) {
         console.error(`Has error ocurred: ${error}`)
-
         setHasError(true)
       } finally {
         setIsLoading(false)

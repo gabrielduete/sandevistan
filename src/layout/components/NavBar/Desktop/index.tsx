@@ -12,10 +12,8 @@ import * as S from './styles'
 
 const DesktopNavBar = () => {
   const router = useRouter()
-  const { pages } = usePages()
-
-  const { setIdPage } = usePagesStoraged()
-
+  // const { pages } = usePages()
+  // const { setIdPage } = usePagesStoraged()
   const [isOpen, setIsOpen] = useState(true)
 
   const closeNavBar = () => {
@@ -23,31 +21,29 @@ const DesktopNavBar = () => {
     setIsOpen(!isOpen)
   }
 
-  const goToContent = (idPage: string) => {
-    setIdPage(idPage)
-    router.push(`/contents/${idPage}`)
-  }
+  // const goToContent = (idPage: string) => {
+  //   setIdPage(idPage)
+  //   router.push(`/contents/${idPage}`)
+  // }
 
-  const paths = pages?.results
-    ?.map(page => {
-      const id = page.id
-      const title = page?.child_page?.title
+  // const paths = pages?.results
+  //   ?.map(page => {
+  //     const id = page.id
+  //     const title = page?.child_page?.title
 
-      return { id, title }
-    })
-    .filter(page => page.title !== undefined)
-
-  console.log(paths)
+  //     return { id, title }
+  //   })
+  //   .filter(page => page.title !== undefined)
 
   return (
     <PagesStoregedProvider>
       <S.Wrapper showNavBar={isOpen}>
         <S.NavBar>
-          {paths?.map(({ title, id }) => (
+          {/* {paths?.map(({ title, id }) => (
             <S.Item key={title} onClick={() => goToContent(id)}>
               <S.Link>{title}</S.Link>
             </S.Item>
-          ))}
+          ))} */}
         </S.NavBar>
         <S.RollbackContainer>
           <Equalizer />
