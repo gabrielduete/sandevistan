@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: 'Raleway', sans-serif;
-  }
+  } 
 
   html{
     background-color: var(--green-dark);
@@ -36,8 +36,13 @@ const GlobalStyle = createGlobalStyle`
 
     // Fonts
     --font-small: 16px;
+    --font-xsmall: 20px;
     --font-medium: 24px;
-    --font-large: 96px;
+    --font-xmedium: 28px;
+    --font-xxmedium: 32px;
+    --font-xxxmedium: 36px;
+    --font-large: 64px;
+    --font-xlarge: 96px;
   }
 `
 

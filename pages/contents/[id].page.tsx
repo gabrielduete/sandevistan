@@ -5,10 +5,11 @@ import { renderBlock } from '~/src/helpers/notionConverter'
 import Layout from '~/src/layout'
 
 const Content = () => {
-  const { idPage } = usePagesStoraged()
   const [content, setContent] = useState()
   const [isLoading, setIsLoading] = useState(false)
   const [hasError, setHasError] = useState(false)
+
+  const { idPage } = usePagesStoraged()
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,7 +18,7 @@ const Content = () => {
         const response = await fetch(`http://localhost:8080/${idPage}`)
 
         if (!response.ok) {
-          throw new Error('Network response was not ok')
+          throw new Error(`COUND NOT GET PAGE ID: ${idPage}`)
         }
 
         const data = await response.json()
@@ -33,8 +34,6 @@ const Content = () => {
 
     fetchData()
   }, [idPage])
-
-  const title = 'teste'
 
   if (isLoading) {
     return (
@@ -55,11 +54,14 @@ const Content = () => {
   return (
     <>
       <Head>
-        <title>Sandevistan - {title}</title>
+        <title>Sandevistan</title>
       </Head>
       <Layout>
-        <h1>{title}</h1>
-        <div>{content?.map(block => renderBlock(block))}</div>
+        <div>
+          {content?.map(block => (
+            <div key={block}>{renderBlock(block)}</div>
+          ))}
+        </div>
       </Layout>
     </>
   )
