@@ -17,6 +17,14 @@ const GlobalStyle = createGlobalStyle`
       display: none; 
     }
   }
+  
+  pre {
+    white-space: pre-wrap;  
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;  
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;      
+  }
 
   :root{
     // Colors
@@ -43,6 +51,9 @@ const GlobalStyle = createGlobalStyle`
     --font-xxxmedium: 36px;
     --font-large: 64px;
     --font-xlarge: 96px;
+
+    // Border-radius
+    --border-radius-small: 4px;
   }
 `
 
