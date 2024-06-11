@@ -6,7 +6,10 @@ const nextConfig = {
     styledComponents: true,
   },
   images: {
-    domains: ['cdn.discordapp.com'],
+    domains: [
+      'cdn.discordapp.com',
+      'prod-files-secure.s3.us-west-2.amazonaws.com',
+    ],
   },
   pageExtensions: ['page.jsx', 'page.js', 'page.tsx', 'page.ts'],
 }
