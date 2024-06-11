@@ -31,7 +31,7 @@ const Equalizer = () => {
 
   return (
     <S.Wrapper onClick={toggleStatus}>
-      {/* <Sound playStatus={status} {...settings} /> */}
+      <Sound playStatus={status} {...settings} />
 
       {isPlaying ? (
         <>
