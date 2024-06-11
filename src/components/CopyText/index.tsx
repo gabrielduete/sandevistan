@@ -29,7 +29,7 @@ const CopyText = ({ value }: CopyTextProps) => {
     )
   }
 
-  return <S.IconCopy onClick={onCopy} />
+  return <S.IconCopy onClick={onCopy} data-testid='copy-icon' />
 }
 
 export default CopyText
