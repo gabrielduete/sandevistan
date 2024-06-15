@@ -5,11 +5,12 @@ import {
   useEffect,
   useState,
 } from 'react'
+import { Block } from '~/src/helpers/notionConverter/notionConverter.types'
 
 type PagesStoraged = {
   idPage: string
   setIdPage: (idPages: string) => void
-  pages: []
+  pages: Block[]
   isLoading: boolean
   hasError: boolean
 }
@@ -40,7 +41,7 @@ export const PagesStoregedProvider = ({
 }) => {
   const [isLoading, setIsLoading] = useState(false)
   const [hasError, setHasError] = useState(false)
-  const [pages, setPages] = useState([])
+  const [pages, setPages] = useState([] as Block[])
   const [idPage, setIdPage] = useState('')
 
   useEffect(() => {

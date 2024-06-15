@@ -9,9 +9,11 @@ import * as S from './styles'
 
 export const renderNestedList = (blocks: ListBlock): ReactNode => {
   const { children } = blocks
+
   if (!children) return null
 
   const isNumberedList = children[0]?.type === 'numbered_list_item'
+
   return isNumberedList ? (
     <ol>{children.map(renderBlock)}</ol>
   ) : (
