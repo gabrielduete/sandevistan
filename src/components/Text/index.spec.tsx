@@ -28,6 +28,6 @@ describe('<Text />', () => {
     const linkElement = screen.getByText('Hello, World!')
 
     expect(linkElement).toBeInTheDocument()
-    expect(linkElement).toHaveAttribute('href', 'https://example.com')
+    expect(linkElement).toHaveAttribute('href', 'https://eoqjest.com')
   })
 })
