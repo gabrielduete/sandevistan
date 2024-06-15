@@ -2,10 +2,11 @@ import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import { usePagesStoraged } from '~/src/contexts/ContextPages'
 import { renderBlock } from '~/src/helpers/notionConverter'
+import { Block } from '~/src/helpers/notionConverter/notionConverter.types'
 import Layout from '~/src/layout'
 
 const Content = () => {
-  const [content, setContent] = useState()
+  const [content, setContent] = useState([] as Block[])
   const [isLoading, setIsLoading] = useState(false)
   const [hasError, setHasError] = useState(false)
 
@@ -59,7 +60,7 @@ const Content = () => {
       <Layout>
         <div>
           {content?.map(block => (
-            <div key={block}>{renderBlock(block)}</div>
+            <div key={block.id}>{renderBlock(block)}</div>
           ))}
         </div>
       </Layout>
