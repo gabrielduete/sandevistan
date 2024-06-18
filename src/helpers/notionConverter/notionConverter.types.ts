@@ -1,10 +1,24 @@
 type TextContent = {
   content: string
+  link: {
+    url: string
+  } | null
 }
 
-type RichText = {
+type Annotations = {
+  bold?: boolean
+  code?: boolean
+  italic?: boolean
+  strikethrough?: boolean
+  underline?: boolean
+  color?: string
+}
+
+export type RichText = {
   text: TextContent
+  annotations: Annotations
   plain_text: string
+  href: string | null
 }
 
 type BlockBase = {

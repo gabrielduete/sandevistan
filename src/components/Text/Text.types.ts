@@ -1,3 +1,5 @@
+import { RichText } from '~/src/helpers/notionConverter/notionConverter.types'
+
 export type StylesProps = {
   bold?: boolean
   code?: boolean
@@ -8,16 +10,5 @@ export type StylesProps = {
 }
 
 export type TextProps = {
-  title: [
-    {
-      link: string
-      annotations: StylesProps
-      text: {
-        content: string
-        link: {
-          url: string
-        }
-      }
-    }
-  ]
+  title: RichText[]
 }

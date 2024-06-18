@@ -4,7 +4,12 @@ import React, { Fragment, ReactNode } from 'react'
 import CopyText from '~/src/components/CopyText'
 import Text from '~/src/components/Text'
 
-import { Block, ListBlock } from './notionConverter.types'
+import {
+  Block,
+  ListBlock,
+  RichText,
+  TableRowBlock,
+} from './notionConverter.types'
 import * as S from './styles'
 
 export const renderNestedList = (blocks: ListBlock): ReactNode => {
@@ -167,14 +172,14 @@ export const renderBlock = (block: Block): ReactNode => {
         <table key={id}>
           <tbody>
             {block.children?.map((child, index) => {
-              const rowValue = child.table_row
+              const rowValue = (child as TableRowBlock).table_row
               const RowElement =
                 value?.has_column_header && index === 0 ? 'th' : 'td'
 
               return (
                 <tr key={child.id}>
-                  {rowValue?.cells.map((cell, i) => (
-                    <RowElement key={`${cell.plain_text}-${i}`}>
+                  {rowValue?.cells.map((cell: RichText[], i: number) => (
+                    <RowElement key={`${cell[0].plain_text}-${i}`}>
                       <Text title={cell} />
                     </RowElement>
                   ))}
