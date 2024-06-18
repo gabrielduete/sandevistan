@@ -37,7 +37,7 @@ export const Content = styled.div`
 export const Title = styled.h1`
   text-transform: uppercase;
   font-weight: 100;
-  font-size: var(--font-large);
+  font-size: var(--font-xlarge);
   writing-mode: vertical-lr;
 `
 

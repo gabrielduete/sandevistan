@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: 'Raleway', sans-serif;
-  }
+  } 
 
   html{
     background-color: var(--green-dark);
@@ -16,6 +16,14 @@ const GlobalStyle = createGlobalStyle`
     ::-webkit-scrollbar {
       display: none; 
     }
+  }
+  
+  pre {
+    white-space: pre-wrap;  
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;  
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;      
   }
 
   :root{
@@ -36,8 +44,16 @@ const GlobalStyle = createGlobalStyle`
 
     // Fonts
     --font-small: 16px;
+    --font-xsmall: 20px;
     --font-medium: 24px;
-    --font-large: 96px;
+    --font-xmedium: 28px;
+    --font-xxmedium: 32px;
+    --font-xxxmedium: 36px;
+    --font-large: 64px;
+    --font-xlarge: 96px;
+
+    // Border-radius
+    --border-radius-small: 4px;
   }
 `
 
