@@ -81,9 +81,9 @@ type ToggleBlock = BlockBase & {
   }
 }
 
-type ChildPageBlock = BlockBase & {
+export type ChildPageBlock = BlockBase & {
   type: 'child_page'
-  child_page: {
+  child_page?: {
     title: string
   }
 }

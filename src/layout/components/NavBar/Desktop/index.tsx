@@ -5,6 +5,7 @@ import {
   PagesStoregedProvider,
   usePagesStoraged,
 } from '~/src/contexts/ContextPages'
+import { ChildPageBlock } from '~/src/helpers/notionConverter/notionConverter.types'
 import { SoundClickButton } from '~/src/utils/sounds'
 
 import * as S from './styles'
@@ -25,11 +26,13 @@ const DesktopNavBar = () => {
     router.push(`/contents/${idPage}`)
   }
 
-  const paths = pages
-    ?.map(page => {
-      const id = page.id
-      const title = page?.child_page?.title
+  const childPageBlocks = pages?.filter(
+    (block): block is ChildPageBlock => block.type === 'child_page'
+  )
 
+  const paths = childPageBlocks
+    ?.map(({ id, child_page }) => {
+      const title = child_page?.title
       return { id, title }
     })
     .filter(page => page.title !== undefined)
