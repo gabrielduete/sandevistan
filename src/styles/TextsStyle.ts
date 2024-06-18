@@ -18,7 +18,6 @@ const TextsStyle = createGlobalStyle`
   
   h3{
     font-size: var(--font-xxmedium);
-    
   }
 
   p{
