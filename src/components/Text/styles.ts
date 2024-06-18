@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components'
-
-import { StylesProps } from './Text.types'
+import { StylesProps } from '~/src/helpers/notionConverter/notionConverter.types'
 
 export const Formatter = styled.span<StylesProps>`
   font-weight: ${({ bold }) => bold && 'bold'};

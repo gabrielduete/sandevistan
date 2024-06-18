@@ -34,46 +34,42 @@ export const renderBlock = (block: Block): ReactNode => {
   switch (type) {
     case 'paragraph':
       return (
-        <S.Text key={id}>
+        <S.Text>
           <Text title={text} />
         </S.Text>
       )
 
     case 'heading_1':
       return (
-        <h1 key={id}>
+        <h1>
           <Text title={text} />
         </h1>
       )
 
     case 'heading_2':
       return (
-        <h2 key={id}>
+        <h2>
           <Text title={text} />
         </h2>
       )
 
     case 'heading_3':
       return (
-        <h3 key={id}>
+        <h3>
           <Text title={text} />
         </h3>
       )
 
     case 'bulleted_list':
-      return (
-        <ul key={id}>{(value as ListBlock)?.children?.map(renderBlock)}</ul>
-      )
+      return <ul>{(value as ListBlock)?.children?.map(renderBlock)}</ul>
 
     case 'numbered_list':
-      return (
-        <ol key={id}>{(value as ListBlock)?.children?.map(renderBlock)}</ol>
-      )
+      return <ol>{(value as ListBlock)?.children?.map(renderBlock)}</ol>
 
     case 'bulleted_list_item':
     case 'numbered_list_item':
       return (
-        <li key={id}>
+        <li>
           <Text title={value?.rich_text} />
           {!!value?.children && renderNestedList(block as ListBlock)}
         </li>
@@ -81,7 +77,7 @@ export const renderBlock = (block: Block): ReactNode => {
 
     case 'to_do':
       return (
-        <div key={id}>
+        <div>
           <label htmlFor={id}>
             <input type='checkbox' id={id} defaultChecked={value?.checked} />
             <Text title={value?.rich_text} />
@@ -91,7 +87,7 @@ export const renderBlock = (block: Block): ReactNode => {
 
     case 'toggle':
       return (
-        <details key={id}>
+        <details>
           <summary>
             <Text title={value?.rich_text} />
           </summary>
@@ -103,7 +99,7 @@ export const renderBlock = (block: Block): ReactNode => {
 
     case 'child_page':
       return (
-        <div key={id}>
+        <div>
           <strong>{value?.title}</strong>
           {block.children?.map(renderBlock)}
         </div>
@@ -113,19 +109,19 @@ export const renderBlock = (block: Block): ReactNode => {
       const src =
         value?.type === 'external' ? value.external?.url : value?.file?.url
       const caption = value?.caption ? value.caption[0]?.plain_text : ''
-      console.log(src)
+
       return (
-        <figure key={id}>
+        <figure>
           <img src={src} alt={caption} />
           {caption && <figcaption>{caption}</figcaption>}
         </figure>
       )
 
     case 'divider':
-      return <hr key={id} />
+      return <hr />
 
     case 'quote':
-      return <blockquote key={id}>{value?.rich_text[0].plain_text}</blockquote>
+      return <blockquote>{value?.rich_text[0].plain_text}</blockquote>
 
     case 'code':
       const code = value?.rich_text[0].plain_text
@@ -136,7 +132,7 @@ export const renderBlock = (block: Block): ReactNode => {
             Code
             <CopyText value={code} />
           </S.WrapperIcons>
-          <pre key={id}>
+          <pre>
             <var>{code}</var>
           </pre>
         </S.WrapperCode>
@@ -149,7 +145,7 @@ export const renderBlock = (block: Block): ReactNode => {
       const fileCaption = value?.caption ? value.caption[0]?.plain_text : ''
 
       return (
-        <figure key={id}>
+        <figure>
           <div>
             📎
             <Link href={srcFile} passHref>
@@ -162,14 +158,14 @@ export const renderBlock = (block: Block): ReactNode => {
 
     case 'bookmark':
       return (
-        <a key={id} href={value?.url} target='_blank' rel='noreferrer noopener'>
+        <a href={value?.url} target='_blank' rel='noreferrer noopener'>
           {value?.url}
         </a>
       )
 
     case 'table':
       return (
-        <table key={id}>
+        <table>
           <tbody>
             {block.children?.map((child, index) => {
               const rowValue = (child as TableRowBlock).table_row
@@ -191,10 +187,10 @@ export const renderBlock = (block: Block): ReactNode => {
       )
 
     case 'column_list':
-      return <div key={id}>{block.children?.map(renderBlock)}</div>
+      return <div>{block.children?.map(renderBlock)}</div>
 
     case 'column':
-      return <div key={id}>{block.children?.map(renderBlock)}</div>
+      return <div>{block.children?.map(renderBlock)}</div>
 
     default:
       return 'Unsupported tag'

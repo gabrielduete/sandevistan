@@ -1,11 +1,4 @@
-type TextContent = {
-  content: string
-  link: {
-    url: string
-  } | null
-}
-
-type Annotations = {
+export type StylesProps = {
   bold?: boolean
   code?: boolean
   italic?: boolean
@@ -15,10 +8,15 @@ type Annotations = {
 }
 
 export type RichText = {
-  text: TextContent
-  annotations: Annotations
+  annotations: StylesProps
+  text: {
+    content: string
+    link?: {
+      url: string
+    }
+  }
   plain_text: string
-  href: string | null
+  href?: string
 }
 
 type BlockBase = {
@@ -30,28 +28,28 @@ type BlockBase = {
 type ParagraphBlock = BlockBase & {
   type: 'paragraph'
   paragraph: {
-    rich_text: TextContent[]
+    rich_text: RichText[]
   }
 }
 
 type Heading1Block = BlockBase & {
   type: 'heading_1'
   heading_1: {
-    rich_text: TextContent[]
+    rich_text: RichText[]
   }
 }
 
 type Heading2Block = BlockBase & {
   type: 'heading_2'
   heading_2: {
-    rich_text: TextContent[]
+    rich_text: RichText[]
   }
 }
 
 type Heading3Block = BlockBase & {
   type: 'heading_3'
   heading_3: {
-    rich_text: TextContent[]
+    rich_text: RichText[]
   }
 }
 
@@ -65,13 +63,13 @@ type NumberedListBlock = ListBlock & {
 
 type ListItemBlock = BlockBase & {
   type: 'bulleted_list_item' | 'numbered_list_item'
-  rich_text: TextContent[]
+  rich_text: RichText[]
 }
 
 type ToDoBlock = BlockBase & {
   type: 'to_do'
   to_do: {
-    rich_text: TextContent[]
+    rich_text: RichText[]
     checked: boolean
   }
 }
@@ -79,7 +77,7 @@ type ToDoBlock = BlockBase & {
 type ToggleBlock = BlockBase & {
   type: 'toggle'
   toggle: {
-    rich_text: TextContent[]
+    rich_text: RichText[]
   }
 }
 
@@ -96,7 +94,7 @@ type ImageBlock = BlockBase & {
     type: 'external' | 'file'
     external?: { url: string }
     file?: { url: string }
-    caption?: TextContent[]
+    caption?: RichText[]
   }
 }
 
@@ -107,14 +105,14 @@ type DividerBlock = BlockBase & {
 type QuoteBlock = BlockBase & {
   type: 'quote'
   quote: {
-    rich_text: TextContent[]
+    rich_text: RichText[]
   }
 }
 
 type CodeBlock = BlockBase & {
   type: 'code'
   code: {
-    rich_text: TextContent[]
+    rich_text: RichText[]
   }
 }
 
@@ -124,7 +122,7 @@ type FileBlock = BlockBase & {
     type: 'external' | 'file'
     external?: { url: string }
     file?: { url: string }
-    caption?: TextContent[]
+    caption?: RichText[]
   }
 }
 
