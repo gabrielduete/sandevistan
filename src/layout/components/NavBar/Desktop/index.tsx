@@ -21,9 +21,12 @@ const DesktopNavBar = () => {
     setIsOpen(!isOpen)
   }
 
-  const goToContent = (idPage: string) => {
-    setIdPage(idPage)
-    router.push(`/contents/${idPage}`)
+  const goToContent = (id: string, title: string) => {
+    const titleWithHyphens = title.replace(/\s/g, '-')
+
+    setIdPage(id)
+
+    router.push(titleWithHyphens)
   }
 
   const childPageBlocks = pages?.filter(
@@ -33,7 +36,10 @@ const DesktopNavBar = () => {
   const paths = childPageBlocks
     ?.map(({ id, child_page }) => {
       const title = child_page?.title
-      return { id, title }
+
+      // @NOTE: Disable eslint to use assertion, because typescript is not recognizing that title is not undefined
+      // eslint-disable-next-line
+      return { id, title: title! }
     })
     .filter(page => page.title !== undefined)
 
@@ -42,7 +48,7 @@ const DesktopNavBar = () => {
       <S.Wrapper showNavBar={isOpen}>
         <S.NavBar>
           {paths?.map(({ title, id }) => (
-            <S.Item key={title} onClick={() => goToContent(id)}>
+            <S.Item key={title} onClick={() => goToContent(id, title)}>
               <S.Link>{title}</S.Link>
             </S.Item>
           ))}
