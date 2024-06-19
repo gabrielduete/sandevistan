@@ -7,8 +7,4 @@ export const items = [
     name: 'About',
     href: '/about',
   },
-  {
-    name: 'Contents',
-    href: '/contents',
-  },
 ]
