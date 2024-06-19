@@ -22,7 +22,7 @@ const DesktopNavBar = () => {
   }
 
   const goToContent = (id: string, title: string) => {
-    const titleWithHyphens = title.replace(/\s/g, '-')
+    const titleWithHyphens = title.replaceAll(' ', '-')
 
     setIdPage(id)
 
