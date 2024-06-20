@@ -1,10 +1,22 @@
+import { useRouter } from 'next/router'
 import React, { useState } from 'react'
+import { usePagesStoraged } from '~/src/contexts/ContextPages'
 
-import { navBarMock } from '../Navbar.mock'
+import { titleWithHyphens } from '../helpers/formateTitle'
+import { getPaths } from '../helpers/getPaths'
 import * as S from './styles'
 
 const MobileNavBar = () => {
+  const router = useRouter()
   const [isOpen, setIsOpen] = useState(false)
+  const { setIdPage, pages } = usePagesStoraged()
+
+  const goToContent = (id: string, title: string) => {
+    setIdPage(id)
+    router.push(titleWithHyphens(title))
+  }
+
+  const paths = getPaths({ pages })
 
   return (
     <S.Container>
@@ -12,8 +24,12 @@ const MobileNavBar = () => {
       <S.WrapperContent isOpen={isOpen}>
         <S.IconClose onClick={() => setIsOpen(false)} />
         <S.WrapperLinks>
-          {navBarMock.map(({ name }, idx) => {
-            return <S.Link key={idx}>{name}</S.Link>
+          {paths.map(({ title, id }) => {
+            return (
+              <S.Link key={id} onClick={() => goToContent(id, title)}>
+                {title}
+              </S.Link>
+            )
           })}
         </S.WrapperLinks>
       </S.WrapperContent>
