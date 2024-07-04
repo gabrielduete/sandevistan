@@ -1,5 +1,7 @@
 import { ReactNode } from 'react'
 
+import ErrorCase from '../components/ErrorCase'
+import { usePagesStoraged } from '../contexts/ContextPages'
 import Breadcrumb from './components/Breadcrumb'
 import Footer from './components/Footer'
 import Header from './components/Header'
@@ -10,18 +12,41 @@ type LayoutProps = {
   children: ReactNode | ReactNode[]
 }
 
-const Layout = ({ children }: LayoutProps) => (
-  <S.Container>
-    <Header />
-    <S.WrapperContent>
-      <DesktopNavbar />
-      <S.Content>
-        <Breadcrumb />
+const Layout = ({ children }: LayoutProps) => {
+  const { pages, isLoading, hasError } = usePagesStoraged()
+
+  const LayoutBase = ({ children }: LayoutProps) => {
+    return (
+      <S.Container>
+        <Header pages={pages} />
         {children}
-      </S.Content>
-    </S.WrapperContent>
-    <Footer />
-  </S.Container>
-)
+        <Footer />
+      </S.Container>
+    )
+  }
+
+  if (isLoading) return <S.Loading color='inherit' />
+
+  if (hasError)
+    return (
+      <LayoutBase>
+        <S.Content>
+          <ErrorCase hasMargin={true} />
+        </S.Content>
+      </LayoutBase>
+    )
+
+  return (
+    <LayoutBase>
+      <S.WrapperContent>
+        <DesktopNavbar pages={pages} />
+        <S.Content>
+          <Breadcrumb />
+          {children}
+        </S.Content>
+      </S.WrapperContent>
+    </LayoutBase>
+  )
+}
 
 export default Layout
