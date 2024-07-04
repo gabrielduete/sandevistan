@@ -1,20 +1,19 @@
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import Equalizer from '~/src/components/Equalizer'
-import {
-  PagesStoregedProvider,
-  usePagesStoraged,
-} from '~/src/contexts/ContextPages'
+import { usePagesStoraged } from '~/src/contexts/ContextPages'
 import { SoundClickButton } from '~/src/utils/sounds'
 
+import { NavBarProps } from '../Navbar.types'
 import { titleWithHyphens } from '../helpers/formateTitle'
 import { getPaths } from '../helpers/getPaths'
 import * as S from './styles'
 
-const DesktopNavBar = () => {
+const DesktopNavBar = ({ pages }: NavBarProps) => {
   const router = useRouter()
   const [isOpen, setIsOpen] = useState(true)
-  const { setIdPage, pages } = usePagesStoraged()
+
+  const { setIdPage } = usePagesStoraged()
 
   const closeNavBar = () => {
     SoundClickButton()
@@ -29,7 +28,7 @@ const DesktopNavBar = () => {
   const paths = getPaths({ pages })
 
   return (
-    <PagesStoregedProvider>
+    <>
       <S.Wrapper showNavBar={isOpen}>
         <S.NavBar>
           {paths?.map(({ title, id }) => (
@@ -47,7 +46,7 @@ const DesktopNavBar = () => {
       <S.WrapperColapsed showNavBar={!isOpen}>
         <S.GoIcon onClick={closeNavBar} />
       </S.WrapperColapsed>
-    </PagesStoregedProvider>
+    </>
   )
 }
 
