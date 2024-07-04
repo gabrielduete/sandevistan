@@ -1,5 +1,7 @@
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
+import ErrorCase from '~/src/components/ErrorCase'
+import SkeletonText from '~/src/components/SkeletonText'
 import { usePagesStoraged } from '~/src/contexts/ContextPages'
 import { renderBlock } from '~/src/helpers/notionConverter'
 import { Block } from '~/src/helpers/notionConverter/notionConverter.types'
@@ -39,15 +41,15 @@ const Content = () => {
   if (isLoading) {
     return (
       <Layout>
-        <h1>LOADING</h1>
+        <SkeletonText />
       </Layout>
     )
   }
 
-  if (hasError) {
+  if (!hasError) {
     return (
       <Layout>
-        <h1>ERROR</h1>
+        <ErrorCase />
       </Layout>
     )
   }
