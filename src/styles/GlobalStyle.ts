@@ -29,11 +29,11 @@ const GlobalStyle = createGlobalStyle`
   :root{
     // Colors
     --black: #21272E;
-    --green-dark: #122226;
     --green: #1A3038;
+    --green-dark: #122226;
+    --green-white: #3C5768; 
     --green-white-regular: #1D333D; 
     --green-white-bold: #223943;
-    --green-white: #3C5768; 
     --white: #FFFFFF;
 
     // Spacings

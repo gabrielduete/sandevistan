@@ -28,6 +28,7 @@ const TextsStyle = createGlobalStyle`
 
   a{
     color: var(--green-white);
+    cursor: pointer;
     text-decoration: none;
     transition:  0.3s;
   }
