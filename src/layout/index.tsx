@@ -31,7 +31,12 @@ const Layout = ({ children }: LayoutProps) => {
     return (
       <LayoutBase>
         <S.Content>
-          <ErrorCase hasMargin={true} />
+          <ErrorCase
+            onClick={() =>
+              typeof window !== 'undefined' && window.location.reload()
+            }
+            hasMargin={true}
+          />
         </S.Content>
       </LayoutBase>
     )

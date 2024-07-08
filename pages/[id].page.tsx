@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import ErrorCase from '~/src/components/ErrorCase'
 import SkeletonText from '~/src/components/SkeletonText'
 import { usePagesStoraged } from '~/src/contexts/ContextPages'
@@ -14,29 +14,29 @@ const Content = () => {
 
   const { idPage } = usePagesStoraged()
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true)
-      try {
-        const response = await fetch(`http://localhost:8080/${idPage}`)
+  const fetchData = useCallback(async () => {
+    setIsLoading(true)
+    try {
+      const response = await fetch(`http://localhost:8080/${idPage}`)
 
-        if (!response.ok) {
-          throw new Error(`COUND NOT GET PAGE ID: ${idPage}`)
-        }
-
-        const data = await response.json()
-
-        setContent(data.results)
-      } catch (error) {
-        console.error('Error fetching data:', error)
-        setHasError(true)
-      } finally {
-        setIsLoading(false)
+      if (!response.ok) {
+        throw new Error(`COUND NOT GET PAGE ID: ${idPage}`)
       }
-    }
 
-    fetchData()
+      const data = await response.json()
+
+      setContent(data.results)
+    } catch (error) {
+      console.error('Error fetching data:', error)
+      setHasError(true)
+    } finally {
+      setIsLoading(false)
+    }
   }, [idPage])
+
+  useEffect(() => {
+    fetchData()
+  }, [fetchData])
 
   if (isLoading) {
     return (
@@ -46,10 +46,10 @@ const Content = () => {
     )
   }
 
-  if (!hasError) {
+  if (hasError) {
     return (
       <Layout>
-        <ErrorCase />
+        <ErrorCase onClick={() => fetchData()} />
       </Layout>
     )
   }

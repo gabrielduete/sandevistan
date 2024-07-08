@@ -4,14 +4,15 @@ import * as S from './styles'
 
 type ErrorCaseProps = {
   hasMargin?: boolean
+  onClick: () => void
 }
 
-const ErrorCase = ({ hasMargin }: ErrorCaseProps) => {
+const ErrorCase = ({ hasMargin, onClick }: ErrorCaseProps) => {
   return (
     <S.Container hasMargin={hasMargin}>
       <ErrorIcon fontSize='large' />
       <S.Text>Something went wrong. Please try again.</S.Text>
-      <S.RetryButton>RETRY</S.RetryButton>
+      <S.RetryButton onClick={onClick}>Retry</S.RetryButton>
     </S.Container>
   )
 }
