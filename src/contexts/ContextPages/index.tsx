@@ -8,18 +8,12 @@ import {
 import { Block } from '~/src/helpers/notionConverter/notionConverter.types'
 
 type PagesStoraged = {
-  idPage: string
-  setIdPage: (idPages: string) => void
   pages: Block[]
   isLoading: boolean
   hasError: boolean
 }
 
 const initialContextValue: PagesStoraged = {
-  idPage: '',
-  setIdPage: () => {
-    console.log()
-  },
   pages: [],
   isLoading: false,
   hasError: false,
@@ -42,7 +36,6 @@ export const PagesStoregedProvider = ({
   const [isLoading, setIsLoading] = useState(false)
   const [hasError, setHasError] = useState(false)
   const [pages, setPages] = useState([] as Block[])
-  const [idPage, setIdPage] = useState('')
 
   useEffect(() => {
     const fetchData = async () => {
@@ -70,8 +63,6 @@ export const PagesStoregedProvider = ({
 
   const contextValue: PagesStoraged = {
     pages,
-    idPage,
-    setIdPage,
     isLoading,
     hasError,
   }
