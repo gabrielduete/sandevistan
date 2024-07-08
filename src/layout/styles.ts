@@ -1,10 +1,10 @@
+import { CircularProgress } from '@mui/material'
 import styled from 'styled-components'
 
 import { breakpoints } from '../enums/breakpoints'
 
 export const Container = styled.main`
   color: var(--white);
-  background-color: var(--green-dark);
 `
 
 export const WrapperContent = styled.section`
@@ -25,4 +25,11 @@ export const Content = styled.div`
   @media (max-width: ${breakpoints.Tablet}) {
     padding: 0 var(--spacing-basic);
   }
+`
+
+export const Loading = styled(CircularProgress)`
+  color: var(--white);
+  position: absolute;
+  top: 45%;
+  left: 50%;
 `

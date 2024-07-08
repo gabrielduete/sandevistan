@@ -1,5 +1,7 @@
 import Head from 'next/head'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
+import ErrorCase from '~/src/components/ErrorCase'
+import SkeletonText from '~/src/components/SkeletonText'
 import { usePagesStoraged } from '~/src/contexts/ContextPages'
 import { renderBlock } from '~/src/helpers/notionConverter'
 import { Block } from '~/src/helpers/notionConverter/notionConverter.types'
@@ -12,34 +14,34 @@ const Content = () => {
 
   const { idPage } = usePagesStoraged()
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true)
-      try {
-        const response = await fetch(`http://localhost:8080/${idPage}`)
+  const fetchData = useCallback(async () => {
+    setIsLoading(true)
+    try {
+      const response = await fetch(`http://localhost:8080/${idPage}`)
 
-        if (!response.ok) {
-          throw new Error(`COUND NOT GET PAGE ID: ${idPage}`)
-        }
-
-        const data = await response.json()
-
-        setContent(data.results)
-      } catch (error) {
-        console.error('Error fetching data:', error)
-        setHasError(true)
-      } finally {
-        setIsLoading(false)
+      if (!response.ok) {
+        throw new Error(`COUND NOT GET PAGE ID: ${idPage}`)
       }
-    }
 
-    fetchData()
+      const data = await response.json()
+
+      setContent(data.results)
+    } catch (error) {
+      console.error('Error fetching data:', error)
+      setHasError(true)
+    } finally {
+      setIsLoading(false)
+    }
   }, [idPage])
+
+  useEffect(() => {
+    fetchData()
+  }, [fetchData])
 
   if (isLoading) {
     return (
       <Layout>
-        <h1>LOADING</h1>
+        <SkeletonText />
       </Layout>
     )
   }
@@ -47,7 +49,7 @@ const Content = () => {
   if (hasError) {
     return (
       <Layout>
-        <h1>ERROR</h1>
+        <ErrorCase onClick={() => fetchData()} />
       </Layout>
     )
   }

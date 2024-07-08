@@ -66,7 +66,7 @@ export const PagesStoregedProvider = ({
     }
 
     fetchData()
-  }, [idPage])
+  }, [])
 
   const contextValue: PagesStoraged = {
     pages,

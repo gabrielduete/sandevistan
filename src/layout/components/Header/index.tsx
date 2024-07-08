@@ -1,10 +1,11 @@
 import { useRouter } from 'next/router'
 
 import MobileNavBar from '../NavBar/Mobile'
+import { NavBarProps } from '../NavBar/Navbar.types'
 import { items } from './Header.data'
 import * as S from './styles'
 
-const Header = () => {
+const Header = ({ pages }: NavBarProps) => {
   const router = useRouter()
 
   return (
@@ -20,7 +21,7 @@ const Header = () => {
           )
         })}
       </S.WrapperLinks>
-      <MobileNavBar />
+      <MobileNavBar pages={pages} />
     </S.Header>
   )
 }
