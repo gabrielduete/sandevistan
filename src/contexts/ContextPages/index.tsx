@@ -3,23 +3,18 @@ import {
   createContext,
   useContext,
   useEffect,
+  useMemo,
   useState,
 } from 'react'
 import { Block } from '~/src/helpers/notionConverter/notionConverter.types'
 
 type PagesStoraged = {
-  idPage: string
-  setIdPage: (idPages: string) => void
   pages: Block[]
   isLoading: boolean
   hasError: boolean
 }
 
 const initialContextValue: PagesStoraged = {
-  idPage: '',
-  setIdPage: () => {
-    console.log()
-  },
   pages: [],
   isLoading: false,
   hasError: false,
@@ -30,7 +25,6 @@ export const PagesStoragedContext =
 
 export const usePagesStoraged = () => {
   const context = useContext(PagesStoragedContext)
-
   return context
 }
 
@@ -42,7 +36,6 @@ export const PagesStoregedProvider = ({
   const [isLoading, setIsLoading] = useState(false)
   const [hasError, setHasError] = useState(false)
   const [pages, setPages] = useState([] as Block[])
-  const [idPage, setIdPage] = useState('')
 
   useEffect(() => {
     const fetchData = async () => {
@@ -55,7 +48,6 @@ export const PagesStoregedProvider = ({
         }
 
         const data = await response.json()
-
         setPages(data.results)
       } catch (error) {
         console.error('Error fetching data:', error)
@@ -68,13 +60,14 @@ export const PagesStoregedProvider = ({
     fetchData()
   }, [])
 
-  const contextValue: PagesStoraged = {
-    pages,
-    idPage,
-    setIdPage,
-    isLoading,
-    hasError,
-  }
+  const contextValue = useMemo(
+    () => ({
+      pages,
+      isLoading,
+      hasError,
+    }),
+    [pages, isLoading, hasError]
+  )
 
   return (
     <PagesStoragedContext.Provider value={contextValue}>
