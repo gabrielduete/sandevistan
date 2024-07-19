@@ -1,7 +1,5 @@
 import { useRouter } from 'next/router'
-import { useState } from 'react'
-import Equalizer from '~/src/components/Equalizer'
-import { SoundClickButton } from '~/src/utils/sounds'
+import { memo, useState } from 'react'
 
 import { formatedTitle } from '../../../../helpers/formateTitle'
 import { getPaths } from '../../../../helpers/getPaths'
@@ -13,7 +11,6 @@ const DesktopNavBar = ({ pages }: NavBarProps) => {
   const [isOpen, setIsOpen] = useState(true)
 
   const closeNavBar = () => {
-    SoundClickButton()
     setIsOpen(!isOpen)
   }
 
@@ -33,9 +30,7 @@ const DesktopNavBar = ({ pages }: NavBarProps) => {
           ))}
         </S.NavBar>
         <S.RollbackContainer>
-          <Equalizer />
           <S.BackIcon onClick={closeNavBar} />
-          <div />
         </S.RollbackContainer>
       </S.Wrapper>
       <S.WrapperColapsed showNavBar={!isOpen}>
@@ -45,4 +40,4 @@ const DesktopNavBar = ({ pages }: NavBarProps) => {
   )
 }
 
-export default DesktopNavBar
+export default memo(DesktopNavBar)

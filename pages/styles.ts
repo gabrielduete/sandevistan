@@ -17,12 +17,6 @@ export const Wrapper = styled.section`
   gap: var(--spacing-xmedium);
 `
 
-export const WrapperEqualizer = styled.footer`
-  position: absolute;
-  right: var(--spacing-medium);
-  bottom: var(--spacing-medium);
-`
-
 export const Content = styled.div`
   display: flex;
   align-items: center;

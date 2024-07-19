@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { ReactNode, memo } from 'react'
 
 import ErrorCase from '../components/ErrorCase'
 import { usePagesStoraged } from '../contexts/ContextPages'
@@ -25,11 +25,13 @@ const Layout = ({ children }: LayoutProps) => {
     )
   }
 
+  const LayoutBaseMemorized = memo(LayoutBase)
+
   if (isLoading) return <S.Loading color='inherit' />
 
   if (hasError)
     return (
-      <LayoutBase>
+      <LayoutBaseMemorized>
         <S.Content>
           <ErrorCase
             onClick={() =>
@@ -38,11 +40,11 @@ const Layout = ({ children }: LayoutProps) => {
             hasMargin={true}
           />
         </S.Content>
-      </LayoutBase>
+      </LayoutBaseMemorized>
     )
 
-  return (
-    <LayoutBase>
+  const MemorizedContent = memo(() => (
+    <LayoutBaseMemorized>
       <S.WrapperContent>
         <DesktopNavbar pages={pages} />
         <S.Content>
@@ -50,8 +52,12 @@ const Layout = ({ children }: LayoutProps) => {
           {children}
         </S.Content>
       </S.WrapperContent>
-    </LayoutBase>
-  )
+    </LayoutBaseMemorized>
+  ))
+
+  MemorizedContent.displayName = 'MemorizedContent'
+
+  return <MemorizedContent />
 }
 
 export default Layout
