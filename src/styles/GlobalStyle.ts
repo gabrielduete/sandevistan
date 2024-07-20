@@ -26,6 +26,10 @@ const GlobalStyle = createGlobalStyle`
     word-wrap: break-word;      
   }
 
+  li {
+    margin-left: var(--spacing-medium);
+  }
+
   :root{
     // Colors
     --black: #21272E;
