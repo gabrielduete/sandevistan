@@ -1,5 +1,15 @@
-describe('<MobileNavBar />', () => {
-  it.todo('render texts correctly')
+import { render, screen } from '@testing-library/react'
+import { pagesMock } from '~/src/mocks/pagesMock'
 
-  it.todo('toggles the NavBar when BackIcon is clicked')
+import MobileNavBar from '.'
+
+describe('<MobileNavBar />', () => {
+  beforeEach(() => {
+    render(<MobileNavBar pages={pagesMock} />)
+  })
+
+  it('render texts correctly', () => {
+    expect(screen.getByText('Git e Versionamento')).toBeInTheDocument()
+    expect(screen.getByText('My list git commands')).toBeInTheDocument()
+  })
 })
