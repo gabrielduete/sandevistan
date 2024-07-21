@@ -3,7 +3,7 @@ import * as S from './styles'
 
 const Footer = () => {
   return (
-    <S.Footer>
+    <S.Footer data-testid='layout__footer'>
       {items.map(({ name, href }, idx) => {
         return (
           <S.Link href={href} target='_blank' key={idx}>

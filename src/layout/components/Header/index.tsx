@@ -9,7 +9,7 @@ const Header = ({ pages }: NavBarProps) => {
   const router = useRouter()
 
   return (
-    <S.Header>
+    <S.Header data-testid='layout__header'>
       <S.WrapperLinks>
         {items.map(({ name, href }) => {
           const isPath = router?.pathname === href
