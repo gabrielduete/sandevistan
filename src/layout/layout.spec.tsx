@@ -19,7 +19,12 @@ describe('<Layout />', () => {
   })
 
   it('should render loading case correctly', async () => {
-    fetchMock.mockResponse(() => new Promise(() => {}))
+    fetchMock.mockResponse(
+      () =>
+        new Promise(() => {
+          // @NOTE: this is a promise that never resolves, to mock loading case
+        })
+    )
 
     render(
       <PagesStoregedProvider>
@@ -42,7 +47,7 @@ describe('<Layout />', () => {
     )
 
     await waitFor(() => {
-      expect(screen.getByTestId(`${id}__error`)).toBeInTheDocument()
+      expect(screen.getByTestId('error-case__id')).toBeInTheDocument()
     })
   })
 })
