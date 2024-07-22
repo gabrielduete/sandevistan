@@ -9,7 +9,7 @@ type ErrorCaseProps = {
 
 const ErrorCase = ({ hasMargin, onClick }: ErrorCaseProps) => {
   return (
-    <S.Container hasMargin={hasMargin}>
+    <S.Container hasMargin={hasMargin} data-testid='error-case__id'>
       <ErrorIcon fontSize='large' />
       <S.Text>Something went wrong. Please try again.</S.Text>
       <S.RetryButton onClick={onClick}>Retry</S.RetryButton>

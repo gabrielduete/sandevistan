@@ -27,7 +27,8 @@ const Layout = ({ children }: LayoutProps) => {
 
   const LayoutBaseMemorized = memo(LayoutBase)
 
-  if (isLoading) return <S.Loading color='inherit' />
+  if (isLoading)
+    return <S.Loading color='inherit' data-testid='layout__loader' />
 
   if (hasError)
     return (
@@ -46,7 +47,7 @@ const Layout = ({ children }: LayoutProps) => {
   const MemorizedContent = memo(() => (
     <LayoutBaseMemorized>
       <S.WrapperContent>
-        <DesktopNavbar pages={pages} />
+        <DesktopNavbar pages={pages} data-testid='layout__navbar' />
         <S.Content>
           <Breadcrumb />
           {children}

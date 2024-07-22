@@ -30,7 +30,10 @@ const DesktopNavBar = ({ pages }: NavBarProps) => {
           ))}
         </S.NavBar>
         <S.RollbackContainer>
-          <S.BackIcon onClick={closeNavBar} />
+          <S.BackIcon
+            onClick={closeNavBar}
+            data-testid='navbar__button-close'
+          />
         </S.RollbackContainer>
       </S.Wrapper>
       <S.WrapperColapsed showNavBar={!isOpen}>
