@@ -4,16 +4,14 @@ import { useState } from 'react'
 import * as S from './styles'
 
 type CopyTextProps = {
-  value: {
-    value: string
-  }
+  value: string
 }
 
 const CopyText = ({ value }: CopyTextProps) => {
   const [isCopied, setIsCopied] = useState(false)
 
   const onCopy = () => {
-    navigator.clipboard.writeText(value?.value)
+    navigator.clipboard.writeText(value)
     setIsCopied(true)
 
     setTimeout(() => {

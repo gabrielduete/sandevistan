@@ -14,7 +14,7 @@ describe('<CopyText />', () => {
   })
 
   it('should copy the value to clipboard and show text "Copiado!" whe clicked', () => {
-    render(<CopyText value={{ value }} />)
+    render(<CopyText value={value} />)
 
     fireEvent.click(screen.getByTestId('copy-icon'))
 
