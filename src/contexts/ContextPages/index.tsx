@@ -41,7 +41,7 @@ export const PagesStoregedProvider = ({
     const fetchData = async () => {
       setIsLoading(true)
       try {
-        const response = await fetch('http://localhost:8080/')
+        const response = await fetch(`${process.env.NEXT_PUBLIC_URL_API}`)
 
         if (!response.ok) {
           throw new Error('Network response was not ok')

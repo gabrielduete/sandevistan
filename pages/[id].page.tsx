@@ -29,7 +29,7 @@ const Content = () => {
 
     setIsLoading(true)
     try {
-      const response = await fetch(`http://localhost:8080/${id}`)
+      const response = await fetch(`${process.env.NEXT_PUBLIC_URL_API}${id}`)
 
       if (!response.ok) {
         throw new Error(`COUND NOT GET PAGE ID: ${id}`)
