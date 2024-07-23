@@ -33,6 +33,10 @@ export const Title = styled.h1`
   font-weight: 100;
   font-size: var(--font-xlarge);
   writing-mode: vertical-lr;
+
+  @media (max-width: 600px) {
+    font-size: var(--font-large);
+  }
 `
 
 export const Link = styled.a`
