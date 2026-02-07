@@ -10,6 +10,9 @@ export const Container = styled.main`
 export const WrapperContent = styled.section`
   width: 100%;
   display: flex;
+  flex: 1;
+  min-height: 0;
+  margin-top: 70px;
 
   @media (max-width: ${breakpoints.Tablet}) {
     padding: 0 var(--spacing-basic);
@@ -17,10 +20,13 @@ export const WrapperContent = styled.section`
 `
 
 export const Content = styled.div`
+  flex: 1;
   width: 100%;
   max-width: ${breakpoints.Desktop};
   word-wrap: break-word;
-  margin: 70px auto;
+  margin: 0 auto;
+  padding: 0 var(--spacing-basic);
+  min-width: 0;
 
   @media (max-width: ${breakpoints.Tablet}) {
     padding: 0 var(--spacing-basic);

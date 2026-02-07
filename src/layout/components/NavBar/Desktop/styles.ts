@@ -20,12 +20,14 @@ const createIconStyles = (Icon: React.ComponentType<SvgIconProps>) => styled(
 `
 
 export const Wrapper = styled.nav<{ showNavBar: boolean }>`
-  display: flex;
+  position: fixed;
+  left: 0;
+  top: 60px;
+  bottom: 50px;
+  display: ${({ showNavBar }) => (showNavBar ? 'flex' : 'none')};
   flex-direction: column;
-  height: calc(100vh - 120px);
-  margin-top: 70px;
-  overflow-y: auto;
-  display: ${({ showNavBar }) => !showNavBar && 'none'};
+  width: 280px;
+  z-index: 100;
 
   @media (max-width: ${breakpoints.Desktop}) {
     display: none;
@@ -33,16 +35,19 @@ export const Wrapper = styled.nav<{ showNavBar: boolean }>`
 `
 
 export const WrapperColapsed = styled.nav<{ showNavBar: boolean }>`
-  display: flex;
+  position: fixed;
+  left: 0;
+  top: 60px;
+  bottom: 50px;
+  display: ${({ showNavBar }) => (showNavBar ? 'flex' : 'none')};
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  overflow-y: auto;
+  width: 60px;
   padding: calc(var(--spacing-basic-small) - 2px);
   background-color: var(--green);
   border: 1px solid var(--green-white);
-  display: ${({ showNavBar }) => !showNavBar && 'none'};
+  z-index: 100;
 
   @media (max-width: ${breakpoints.Desktop}) {
     display: none;
@@ -50,11 +55,13 @@ export const WrapperColapsed = styled.nav<{ showNavBar: boolean }>`
 `
 
 export const NavBar = styled.div`
-  width: 280px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-basic-small);
   overflow-y: auto;
+  flex: 1;
+  min-height: 0;
 
   ::-webkit-scrollbar {
     width: 2px;
@@ -96,8 +103,9 @@ export const Link = styled.a`
 `
 
 export const RollbackContainer = styled.div`
-  max-width: 280px;
+  width: 100%;
   height: 60px;
+  min-height: 60px;
   color: var(--green-white);
   background-color: var(--green);
   border: 1px solid var(--green-white);
@@ -106,6 +114,7 @@ export const RollbackContainer = styled.div`
   align-items: center;
   justify-content: space-around;
   padding: 0 10px;
+  flex-shrink: 0;
 `
 
 export const BackIcon = createIconStyles(ArrowBackIcon)

@@ -12,5 +12,6 @@ export const Content = styled.div`
 `
 
 export const Image = styled.img`
-  align-self: center;
+  width: 100px;
+  height: 100px;
 `

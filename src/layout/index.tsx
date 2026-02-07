@@ -46,8 +46,8 @@ const Layout = ({ children }: LayoutProps) => {
 
   const MemorizedContent = memo(() => (
     <LayoutBaseMemorized>
+      <DesktopNavbar pages={pages} data-testid='layout__navbar' />
       <S.WrapperContent>
-        <DesktopNavbar pages={pages} data-testid='layout__navbar' />
         <S.Content>
           <Breadcrumb />
           {children}

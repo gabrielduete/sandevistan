@@ -9,15 +9,15 @@ const About = () => {
         <h1>Sandevistan</h1>
         <S.SubTitle>About</S.SubTitle>
         <S.Content>
+        <S.Image
+            src='/assets/images/sandevistan.png'
+            alt='Militech apogee Sandevistan'
+          />
           <p>
             My Virtual Library of Software Engineering Studies. This project
             aims to document all my studies that will be stored on this Notion
             page. It will be automatically updated whenever I make any changes.
           </p>
-          <S.Image
-            src='/assets/images/sandevistan.png'
-            alt='Militech apogee Sandevistan'
-          />
           <p>
             The name of the project was inspired by the Sandevistan Operating
             System implant from the Cyberpunk 2077 game. It was my favorite
