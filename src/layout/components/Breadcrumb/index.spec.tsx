@@ -2,14 +2,15 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 
 import Breadcrumb from '.'
+import { Paths } from '~/src/enums/paths'
 
 jest.mock('next/router', () => ({
   useRouter() {
     return {
-      route: '/',
+      route: Paths.HOME,
       pathname: '',
       query: '',
-      asPath: '/about/test/param',
+      asPath: `${Paths.ABOUT}/test/param`,
       push: jest.fn(),
     }
   },

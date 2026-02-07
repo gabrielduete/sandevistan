@@ -3,6 +3,7 @@ import type { NextPage } from 'next'
 import { useGlitch } from 'react-powerglitch'
 
 import * as S from './styles'
+import { Paths } from '~/src/enums/paths'
 
 const Home: NextPage = () => {
   const glitch = useGlitch()
@@ -12,7 +13,7 @@ const Home: NextPage = () => {
       <S.Wrapper>
         <S.Content>
           <S.Title ref={glitch.ref}>sandevistan</S.Title>
-          <S.Link onClick={() => window.open('/about', '_self', 'noreferrer')}>
+          <S.Link onClick={() => window.open(Paths.ABOUT, '_self', 'noreferrer')}>
             explore <ArrowRightAltIcon />
           </S.Link>
         </S.Content>
