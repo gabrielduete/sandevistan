@@ -1,15 +1,39 @@
 import { RichText } from '~/src/helpers/notionConverter/notionConverter.types'
 
-import { Formatter } from './styles'
+import * as S from './styles'
 
 type TextProps = {
   title: RichText[]
+  isHeading?: boolean
 }
 
-const Text = ({ title }: TextProps) => {
+const Text = ({ title, isHeading }: TextProps) => {
   if (!title) {
     return null
   }
+
+  const renderContent = (text: RichText['text']) => {
+    if (isHeading) {
+      return (
+        <S.WrapperHeading id={text.content} onClick={
+          (e) => {
+            e.preventDefault()
+            window.location.hash = text.content
+          }
+        }>
+          <S.Hashtag>#</S.Hashtag>
+          {text.content}
+        </S.WrapperHeading>
+      )
+    }
+
+    if (text.link) {
+      return <a href={text.link.url}>{text.content}</a>
+    }
+
+    return text.content
+  }
+
 
   return (
     <>
@@ -20,7 +44,7 @@ const Text = ({ title }: TextProps) => {
         } = value
 
         return (
-          <Formatter
+          <S.Formatter
             key={text.content}
             bold={bold}
             code={code}
@@ -29,12 +53,8 @@ const Text = ({ title }: TextProps) => {
             strikethrough={strikethrough}
             underline={underline}
           >
-            {text.link ? (
-              <a href={text.link.url}>{text.content}</a>
-            ) : (
-              text.content
-            )}
-          </Formatter>
+            {renderContent(text)}
+          </S.Formatter>
         )
       })}
     </>

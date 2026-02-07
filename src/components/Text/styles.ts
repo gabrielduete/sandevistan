@@ -14,5 +14,18 @@ export const Formatter = styled.span<StylesProps>`
       background-color: var(--black);
       padding: 0 var(--spacing-basic-small);
       border-radius: var(--border-radius-small);
-    `}
+    `}  
+`
+
+export const Hashtag = styled.p`
+  color: var(--green-white);
+  cursor: pointer;
+  text-decoration: none;
+  font-size: var(--font-xxxmedium);
+`
+
+export const WrapperHeading = styled.span`
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-basic-small);
 `

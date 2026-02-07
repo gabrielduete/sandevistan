@@ -42,7 +42,7 @@ export const renderBlock = (block: Block): ReactNode => {
     case 'heading_1':
       return (
         <h1>
-          <Text title={text} />
+          <Text title={text} isHeading={true} />
         </h1>
       )
 
