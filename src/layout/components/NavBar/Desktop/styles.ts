@@ -27,7 +27,9 @@ export const Wrapper = styled.nav<{ showNavBar: boolean }>`
   display: ${({ showNavBar }) => (showNavBar ? 'flex' : 'none')};
   flex-direction: column;
   width: 280px;
+  height: calc(100vh - 60px - 50px);
   z-index: 100;
+  overflow: hidden;
 
   @media (max-width: ${breakpoints.Desktop}) {
     display: none;
@@ -62,13 +64,10 @@ export const NavBar = styled.div`
   overflow-y: auto;
   flex: 1;
   min-height: 0;
+  height: 100%;
 
   ::-webkit-scrollbar {
     width: 2px;
-  }
-
-  ::-webkit-scrollbar-button {
-    background-color: var(--black);
   }
 
   ::-webkit-scrollbar-track-piece {
@@ -77,6 +76,8 @@ export const NavBar = styled.div`
 
   ::-webkit-scrollbar-thumb {
     background-color: var(--white);
+    border-radius: 0;
+    min-height: 20px;
   }
 `
 
