@@ -32,7 +32,7 @@ const Content = () => {
       const response = await fetch(`${process.env.NEXT_PUBLIC_URL_API}${id}`)
 
       if (!response.ok) {
-        throw new Error(`COUND NOT GET PAGE ID: ${id}`)
+        throw new Error(`COULD NOT GET PAGE ID: ${id}`)
       }
 
       const data = await response.json()
