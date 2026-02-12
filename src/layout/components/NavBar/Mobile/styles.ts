@@ -29,11 +29,14 @@ export const Container = styled.nav`
 
 export const IconOpen = addStyledIcon({ Icon: MenuIcon })
 
-export const IconClose = addStyledIcon({ Icon: CloseIcon, alignSelfEnd: true })
+export const IconClose = styled(addStyledIcon({ Icon: CloseIcon, alignSelfEnd: true }))`
+  margin-right: var(--spacing-basic);
+  margin-top: var(--spacing-basic);
+`
 
 export const WrapperContent = styled.div<{ isOpen: boolean }>`
   width: 100%;
-  height: 90vh;
+  height: 93vh;
   background-color: var(--green-dark);
   position: absolute;
   top: 0;
