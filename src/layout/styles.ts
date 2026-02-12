@@ -14,9 +14,6 @@ export const WrapperContent = styled.section`
   width: calc(100% - 100px);
   margin-left: 280px;
   display: flex;
-  flex: 1;
-  min-height: 0;
-  margin-left: 100px;
   margin-top: 70px;
   justify-content: center;
   align-items: center;
