@@ -19,6 +19,7 @@ describe('<Text />', () => {
           url: 'https://eoqjest.com',
         },
       },
+      plain_text: 'Hello, World!',
     },
   ]
 

@@ -3,6 +3,18 @@ import { pagesMock } from '~/src/mocks/pagesMock'
 
 import DesktopNavBar from '.'
 
+jest.mock('next/router', () => ({
+  useRouter() {
+    return {
+      route: '/',
+      pathname: '/',
+      query: {},
+      asPath: '/',
+      push: jest.fn(),
+    }
+  },
+}))
+
 describe('<DesktopNavBar />', () => {
   beforeEach(() => {
     render(<DesktopNavBar pages={pagesMock} />)
