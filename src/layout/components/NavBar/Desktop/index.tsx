@@ -16,6 +16,13 @@ const DesktopNavBar = ({ pages }: NavBarProps) => {
 
   const paths = getPaths({ pages })
 
+  const isActive = (title: string) => {
+    const currentPath = router.asPath.split('#')[0]
+    const pathSegment = currentPath.split('/').pop() || ''
+    
+    return pathSegment === formatedTitle(title, true)
+  }
+
   return (
     <>
       <S.Wrapper showNavBar={isOpen}>
@@ -24,6 +31,7 @@ const DesktopNavBar = ({ pages }: NavBarProps) => {
             <S.Item
               key={title}
               onClick={() => router.push(formatedTitle(title, true))}
+              isActive={isActive(title)}
             >
               <S.Link>{title}</S.Link>
             </S.Item>

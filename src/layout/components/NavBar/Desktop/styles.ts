@@ -81,13 +81,18 @@ export const NavBar = styled.div`
   }
 `
 
-export const Item = styled.div`
+export const Item = styled.div<{ isActive: boolean }>`
   display: flex;
   align-items: center;
   width: 100%;
   transition: 0.3s;
   padding: var(--spacing-basic-small) 0;
   cursor: pointer;
+  background-color: ${({ isActive }) => (isActive && 'var(--green)')};
+  
+  a {
+    color: ${({ isActive }) => (isActive &&'var(--white)')};
+  }
 
   &:hover {
     background: var(--green);
