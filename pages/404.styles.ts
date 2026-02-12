@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.section`
+export const Container = styled('section')`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,7 +9,7 @@ export const Container = styled.section`
   gap: var(--spacing-basic);
 `
 
-export const Title = styled.h1`
+export const Title = styled('h1')`
   font-size: 4rem;
   font-weight: 300;
   color: var(--green-white);
@@ -17,13 +17,13 @@ export const Title = styled.h1`
   line-height: 1;
 `
 
-export const Message = styled.p`
+export const Message = styled('p')`
   font-size: var(--font-medium);
   color: var(--green-white);
   margin: 0;
 `
 
-export const Button = styled.button`
+export const Button = styled('button')`
   background-color: transparent;
   color: var(--green-white);
   border: 1px solid var(--green-white);
@@ -39,4 +39,3 @@ export const Button = styled.button`
     border-color: var(--green);
   }
 `
-

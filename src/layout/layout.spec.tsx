@@ -1,14 +1,23 @@
 import { render, screen, waitFor } from '@testing-library/react'
 import fetchMock from 'jest-fetch-mock'
+import memoryRouter from 'next-router-mock'
+import { RouterContext } from 'next/dist/shared/lib/router-context.shared-runtime'
+import React from 'react'
 
 import Layout from '.'
 import { PagesStoregedProvider } from '../contexts/ContextPages'
+
+function customRender(ui: React.ReactElement) {
+  return render(
+    <RouterContext.Provider value={memoryRouter}>{ui}</RouterContext.Provider>
+  )
+}
 
 describe('<Layout />', () => {
   const id = 'layout'
 
   it('should render children and components correctly', () => {
-    render(<Layout>Layout</Layout>)
+    customRender(<Layout>Layout</Layout>)
 
     const children = screen.getByText('Layout')
 
@@ -26,7 +35,7 @@ describe('<Layout />', () => {
         })
     )
 
-    render(
+    customRender(
       <PagesStoregedProvider>
         <Layout>Layout</Layout>
       </PagesStoregedProvider>
@@ -40,7 +49,7 @@ describe('<Layout />', () => {
   it('should render error case correctly', async () => {
     fetchMock.mockReject(new Error('error bip bop'))
 
-    render(
+    customRender(
       <PagesStoregedProvider>
         <Layout>Layout</Layout>
       </PagesStoregedProvider>

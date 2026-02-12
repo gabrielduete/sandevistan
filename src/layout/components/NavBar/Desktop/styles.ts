@@ -19,7 +19,7 @@ const createIconStyles = (Icon: React.ComponentType<SvgIconProps>) => styled(
   }
 `
 
-export const Wrapper = styled.nav<{ showNavBar: boolean }>`
+export const Wrapper = styled('nav')<{ showNavBar: boolean }>`
   position: fixed;
   left: 0;
   top: 60px;
@@ -36,7 +36,7 @@ export const Wrapper = styled.nav<{ showNavBar: boolean }>`
   }
 `
 
-export const WrapperColapsed = styled.nav<{ showNavBar: boolean }>`
+export const WrapperColapsed = styled('nav')<{ showNavBar: boolean }>`
   position: fixed;
   left: 0;
   top: 60px;
@@ -56,7 +56,7 @@ export const WrapperColapsed = styled.nav<{ showNavBar: boolean }>`
   }
 `
 
-export const NavBar = styled.div`
+export const NavBar = styled('div')`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -81,17 +81,17 @@ export const NavBar = styled.div`
   }
 `
 
-export const Item = styled.div<{ isActive: boolean }>`
+export const Item = styled('div')<{ isActive: boolean }>`
   display: flex;
   align-items: center;
   width: 100%;
   transition: 0.3s;
   padding: var(--spacing-basic-small) 0;
   cursor: pointer;
-  background-color: ${({ isActive }) => (isActive && 'var(--green)')};
-  
+  background-color: ${({ isActive }) => isActive && 'var(--green)'};
+
   a {
-    color: ${({ isActive }) => (isActive &&'var(--white)')};
+    color: ${({ isActive }) => isActive && 'var(--white)'};
   }
 
   &:hover {
@@ -103,12 +103,12 @@ export const Item = styled.div<{ isActive: boolean }>`
   }
 `
 
-export const Link = styled.a`
+export const Link = styled('a')`
   font-size: var(--font-small);
   padding-left: var(--spacing-basic);
 `
 
-export const RollbackContainer = styled.div`
+export const RollbackContainer = styled('div')`
   width: 100%;
   height: 60px;
   min-height: 60px;

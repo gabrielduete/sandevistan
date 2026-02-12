@@ -3,14 +3,14 @@ import styled from 'styled-components'
 
 import { breakpoints } from '../enums/breakpoints'
 
-export const Container = styled.main`
+export const Container = styled('main')`
   color: var(--white);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 `
 
-export const WrapperContent = styled.section`
+export const WrapperContent = styled('section')`
   width: calc(100% - 100px);
   margin-left: 280px;
   display: flex;
@@ -29,7 +29,7 @@ export const WrapperContent = styled.section`
   }
 `
 
-export const Content = styled.div`
+export const Content = styled('div')`
   flex: 1;
   width: 100%;
   max-width: ${breakpoints.Desktop};

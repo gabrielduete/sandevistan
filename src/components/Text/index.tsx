@@ -15,12 +15,13 @@ const Text = ({ title, isHeading }: TextProps) => {
   const renderContent = (text: RichText['text']) => {
     if (isHeading) {
       return (
-        <S.WrapperHeading id={text.content} onClick={
-          (e) => {
+        <S.WrapperHeading
+          id={text.content}
+          onClick={(e: React.MouseEvent<HTMLSpanElement>) => {
             e.preventDefault()
             window.location.hash = text.content
-          }
-        }>
+          }}
+        >
           <S.Hashtag>#</S.Hashtag>
           {text.content}
         </S.WrapperHeading>
@@ -33,7 +34,6 @@ const Text = ({ title, isHeading }: TextProps) => {
 
     return text.content
   }
-
 
   return (
     <>

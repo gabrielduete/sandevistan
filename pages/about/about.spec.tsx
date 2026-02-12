@@ -1,10 +1,19 @@
 import { render, screen } from '@testing-library/react'
+import memoryRouter from 'next-router-mock'
+import { RouterContext } from 'next/dist/shared/lib/router-context.shared-runtime'
+import React from 'react'
 
 import About from './index.page'
 
+function customRender(ui: React.ReactElement) {
+  return render(
+    <RouterContext.Provider value={memoryRouter}>{ui}</RouterContext.Provider>
+  )
+}
+
 describe('About page', () => {
   it('should render the title, subtitle, and content', () => {
-    render(<About />)
+    customRender(<About />)
 
     expect(screen.getByText('Sandevistan')).toBeInTheDocument()
     expect(
@@ -13,7 +22,7 @@ describe('About page', () => {
   })
 
   it('should render the GitHub repository link', () => {
-    render(<About />)
+    customRender(<About />)
 
     const linkElement = screen.getByText('GitHub repository')
 

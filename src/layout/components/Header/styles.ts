@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import AnimationHoverLine from '~/src/styles/AnimationHoverLine'
 
-export const Header = styled.header`
+export const Header = styled('header')`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -16,14 +16,14 @@ export const Header = styled.header`
   left: 0;
 `
 
-export const WrapperLinks = styled.div`
+export const WrapperLinks = styled('div')`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: var(--spacing-basic);
 `
 
-export const Link = styled.a<{ isPath: boolean }>`
+export const Link = styled('a')<{ isPath: boolean }>`
   color: ${({ isPath }) =>
     isPath ? 'color: var(--white)' : 'var(--green-white)'};
   cursor: pointer;
