@@ -10,6 +10,7 @@ const DesktopNavBar = ({
   pages,
   isOpen: isOpenProp,
   onToggle,
+  'data-testid': testId,
 }: NavBarProps) => {
   const router = useRouter()
   const [internalIsOpen, setInternalIsOpen] = useState(true)
@@ -35,7 +36,7 @@ const DesktopNavBar = ({
 
   return (
     <>
-      <S.Wrapper showNavBar={isOpen}>
+      <S.Wrapper showNavBar={isOpen} data-testid={testId}>
         <S.NavBar>
           {paths?.map(({ title }) => (
             <S.Item

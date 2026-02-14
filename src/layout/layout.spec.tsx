@@ -16,14 +16,24 @@ function customRender(ui: React.ReactElement) {
 describe('<Layout />', () => {
   const id = 'layout'
 
-  it('should render children and components correctly', () => {
-    customRender(<Layout>Layout</Layout>)
+  it('should render children and components correctly', async () => {
+    fetchMock.mockResponseOnce(JSON.stringify({ results: [] }))
+
+    customRender(
+      <PagesStoregedProvider>
+        <Layout>Layout</Layout>
+      </PagesStoregedProvider>
+    )
+
+    await waitFor(() => {
+      expect(screen.queryByTestId(`${id}__loader`)).not.toBeInTheDocument()
+    })
 
     const children = screen.getByText('Layout')
 
     expect(children).toBeInTheDocument()
     expect(screen.getByTestId(`${id}__header`)).toBeInTheDocument()
-    expect(screen.queryByTestId(`${id}__navbar`)).not.toBeInTheDocument()
+    expect(screen.getByTestId(`${id}__navbar`)).toBeInTheDocument()
     expect(screen.getByTestId(`${id}__footer`)).toBeInTheDocument()
   })
 
