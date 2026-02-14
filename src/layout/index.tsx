@@ -1,4 +1,4 @@
-import { ReactNode, memo } from 'react'
+import { ReactNode, memo, useState } from 'react'
 
 import ErrorCase from '../components/ErrorCase'
 import { usePagesStoraged } from '../contexts/ContextPages'
@@ -14,6 +14,7 @@ type LayoutProps = {
 
 const Layout = ({ children }: LayoutProps) => {
   const { pages, isLoading, hasError } = usePagesStoraged()
+  const [isMenuOpen, setIsMenuOpen] = useState(true)
 
   const LayoutBase = ({ children }: LayoutProps) => {
     return (
@@ -54,8 +55,13 @@ const Layout = ({ children }: LayoutProps) => {
 
   const MemorizedContent = memo(() => (
     <LayoutBaseMemorized>
-      <DesktopNavbar pages={pages} data-testid='layout__navbar' />
-      <S.WrapperContent>
+      <DesktopNavbar
+        pages={pages}
+        isOpen={isMenuOpen}
+        onToggle={setIsMenuOpen}
+        data-testid='layout__navbar'
+      />
+      <S.WrapperContent isMenuOpen={isMenuOpen}>
         <S.Content>
           <Breadcrumb />
           {children}

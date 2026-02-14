@@ -6,12 +6,22 @@ import { getPaths } from '../../../../helpers/getPaths'
 import { NavBarProps } from '../Navbar.types'
 import * as S from './styles'
 
-const DesktopNavBar = ({ pages }: NavBarProps) => {
+const DesktopNavBar = ({
+  pages,
+  isOpen: isOpenProp,
+  onToggle,
+}: NavBarProps) => {
   const router = useRouter()
-  const [isOpen, setIsOpen] = useState(true)
+  const [internalIsOpen, setInternalIsOpen] = useState(true)
+  const isOpen = isOpenProp !== undefined ? isOpenProp : internalIsOpen
 
   const closeNavBar = () => {
-    setIsOpen(!isOpen)
+    const newState = !isOpen
+    if (onToggle) {
+      onToggle(newState)
+    } else {
+      setInternalIsOpen(newState)
+    }
   }
 
   const paths = getPaths({ pages })
@@ -19,7 +29,7 @@ const DesktopNavBar = ({ pages }: NavBarProps) => {
   const isActive = (title: string) => {
     const currentPath = router.asPath.split('#')[0]
     const pathSegment = currentPath.split('/').pop() || ''
-    
+
     return pathSegment === formatedTitle(title, true)
   }
 
