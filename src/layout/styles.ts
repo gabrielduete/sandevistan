@@ -47,6 +47,19 @@ export const Content = styled('div')`
   }
 `
 
+export const LoadingContainer = styled('div')`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+`
+
+export const LoadingText = styled('h1')`
+  font-size: var(--font-medium);
+  color: var(--white);
+`
+
 export const Loading = styled(CircularProgress)`
   color: var(--white);
   position: absolute;

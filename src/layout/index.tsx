@@ -28,7 +28,15 @@ const Layout = ({ children }: LayoutProps) => {
   const LayoutBaseMemorized = memo(LayoutBase)
 
   if (isLoading)
-    return <S.Loading color='inherit' data-testid='layout__loader' />
+    return (
+      <S.LoadingContainer>
+        <S.Loading color='inherit' data-testid='layout__loader' />
+        <S.LoadingText>
+          Sorry for the delay 😅 I&apos;m hosting the backend on a free
+          platform, so it takes a bit longer to wake up.
+        </S.LoadingText>
+      </S.LoadingContainer>
+    )
 
   if (hasError)
     return (
