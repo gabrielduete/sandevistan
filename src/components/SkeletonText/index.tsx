@@ -1,7 +1,7 @@
 import { Skeleton } from '@mui/material'
 
 const SkeletonText = () => {
-  const skeletons = [160, 120, 70, 50]
+  const skeletons = [200, 150, 100]
 
   return (
     <div data-testid='skeleton__loading'>

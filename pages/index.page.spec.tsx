@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 
 import Home from './index.page'
+import { Paths } from '~/src/enums/paths'
 
 describe('<Home />', () => {
   beforeAll(() => {
@@ -23,6 +24,6 @@ describe('<Home />', () => {
     fireEvent.click(exploreLink)
 
     expect(window.open).toHaveBeenCalledTimes(1)
-    expect(window.open).toHaveBeenCalledWith('/about', '_self', 'noreferrer')
+    expect(window.open).toHaveBeenCalledWith(Paths.ABOUT, '_self', 'noreferrer')
   })
 })

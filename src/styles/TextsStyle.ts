@@ -8,7 +8,6 @@ const TextsStyle = createGlobalStyle`
 
   h1 {
     font-size: var(--font-large);
-    letter-spacing: 10px;
     font-weight: 700;
   }
 
@@ -21,7 +20,7 @@ const TextsStyle = createGlobalStyle`
   }
 
   p{
-    font-size: var(--font-small);
+    font-size: var(--font-xsmall);
     font-weight: 500;
     margin: var(--spacing-basic-small) 0;
   }

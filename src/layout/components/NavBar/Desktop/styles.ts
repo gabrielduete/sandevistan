@@ -19,49 +19,55 @@ const createIconStyles = (Icon: React.ComponentType<SvgIconProps>) => styled(
   }
 `
 
-export const Wrapper = styled.nav<{ showNavBar: boolean }>`
-  display: flex;
+export const Wrapper = styled('nav')<{ showNavBar: boolean }>`
+  position: fixed;
+  left: 0;
+  top: 60px;
+  bottom: 50px;
+  display: ${({ showNavBar }) => (showNavBar ? 'flex' : 'none')};
   flex-direction: column;
-  height: calc(100vh - 120px);
-  margin-top: 70px;
-  overflow-y: auto;
-  display: ${({ showNavBar }) => !showNavBar && 'none'};
+  width: 280px;
+  height: calc(100vh - 60px - 50px);
+  z-index: 100;
+  overflow: hidden;
 
   @media (max-width: ${breakpoints.Desktop}) {
     display: none;
   }
 `
 
-export const WrapperColapsed = styled.nav<{ showNavBar: boolean }>`
-  display: flex;
+export const WrapperColapsed = styled('nav')<{ showNavBar: boolean }>`
+  position: fixed;
+  left: 0;
+  top: 60px;
+  bottom: 50px;
+  display: ${({ showNavBar }) => (showNavBar ? 'flex' : 'none')};
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  overflow-y: auto;
+  width: 60px;
   padding: calc(var(--spacing-basic-small) - 2px);
   background-color: var(--green);
   border: 1px solid var(--green-white);
-  display: ${({ showNavBar }) => !showNavBar && 'none'};
+  z-index: 100;
 
   @media (max-width: ${breakpoints.Desktop}) {
     display: none;
   }
 `
 
-export const NavBar = styled.div`
-  width: 280px;
+export const NavBar = styled('div')`
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-basic-small);
   overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+  height: 100%;
 
   ::-webkit-scrollbar {
     width: 2px;
-  }
-
-  ::-webkit-scrollbar-button {
-    background-color: var(--black);
   }
 
   ::-webkit-scrollbar-track-piece {
@@ -70,16 +76,23 @@ export const NavBar = styled.div`
 
   ::-webkit-scrollbar-thumb {
     background-color: var(--white);
+    border-radius: 0;
+    min-height: 20px;
   }
 `
 
-export const Item = styled.div`
+export const Item = styled('div')<{ isActive: boolean }>`
   display: flex;
   align-items: center;
   width: 100%;
   transition: 0.3s;
   padding: var(--spacing-basic-small) 0;
   cursor: pointer;
+  background-color: ${({ isActive }) => isActive && 'var(--green)'};
+
+  a {
+    color: ${({ isActive }) => isActive && 'var(--white)'};
+  }
 
   &:hover {
     background: var(--green);
@@ -90,14 +103,15 @@ export const Item = styled.div`
   }
 `
 
-export const Link = styled.a`
+export const Link = styled('a')`
   font-size: var(--font-small);
   padding-left: var(--spacing-basic);
 `
 
-export const RollbackContainer = styled.div`
-  max-width: 280px;
+export const RollbackContainer = styled('div')`
+  width: 100%;
   height: 60px;
+  min-height: 60px;
   color: var(--green-white);
   background-color: var(--green);
   border: 1px solid var(--green-white);
@@ -106,6 +120,7 @@ export const RollbackContainer = styled.div`
   align-items: center;
   justify-content: space-around;
   padding: 0 10px;
+  flex-shrink: 0;
 `
 
 export const BackIcon = createIconStyles(ArrowBackIcon)

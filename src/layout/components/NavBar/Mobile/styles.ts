@@ -21,7 +21,7 @@ const addStyledIcon = ({ Icon, alignSelfEnd }: addStyleIcon) => styled(Icon)`
   }
 `
 
-export const Container = styled.nav`
+export const Container = styled('nav')`
   @media (min-width: ${breakpoints.Desktop}) {
     display: none;
   }
@@ -29,11 +29,16 @@ export const Container = styled.nav`
 
 export const IconOpen = addStyledIcon({ Icon: MenuIcon })
 
-export const IconClose = addStyledIcon({ Icon: CloseIcon, alignSelfEnd: true })
+export const IconClose = styled(
+  addStyledIcon({ Icon: CloseIcon, alignSelfEnd: true })
+)`
+  margin-right: var(--spacing-basic);
+  margin-top: var(--spacing-basic);
+`
 
-export const WrapperContent = styled.div<{ isOpen: boolean }>`
+export const WrapperContent = styled('div')<{ isOpen: boolean }>`
   width: 100%;
-  height: 90vh;
+  height: 93vh;
   background-color: var(--green-dark);
   position: absolute;
   top: 0;
@@ -44,13 +49,13 @@ export const WrapperContent = styled.div<{ isOpen: boolean }>`
   overflow-y: scroll;
 `
 
-export const WrapperLinks = styled.div`
+export const WrapperLinks = styled('div')`
   display: flex;
   flex-direction: column;
   gap: var(--spacing-basic);
 `
 
-export const Link = styled.a`
+export const Link = styled('a')`
   font-size: var(--font-medium);
   padding-left: var(--spacing-basic);
   cursor: pointer;

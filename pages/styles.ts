@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import AnimationHoverLine from '~/src/styles/AnimationHoverLine'
 
-export const Wrapper = styled.section`
+export const Wrapper = styled('section')`
   background: linear-gradient(90deg, var(--green-dark) 0%, var(--green) 100%);
   color: var(--white);
   height: 100%;
@@ -17,7 +17,7 @@ export const Wrapper = styled.section`
   gap: var(--spacing-xmedium);
 `
 
-export const Content = styled.div`
+export const Content = styled('div')`
   display: flex;
   align-items: center;
   gap: var(--spacing-xmedium);
@@ -28,7 +28,7 @@ export const Content = styled.div`
   }
 `
 
-export const Title = styled.h1`
+export const Title = styled('h1')`
   text-transform: uppercase;
   font-weight: 100;
   font-size: var(--font-xlarge);
@@ -39,7 +39,7 @@ export const Title = styled.h1`
   }
 `
 
-export const Link = styled.a`
+export const Link = styled('a')`
   cursor: pointer;
   font-size: var(--font-medium);
   opacity: 0.8;

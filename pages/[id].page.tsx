@@ -9,6 +9,7 @@ import { getPaths } from '~/src/helpers/getPaths'
 import { renderBlock } from '~/src/helpers/notionConverter'
 import { Block } from '~/src/helpers/notionConverter/notionConverter.types'
 import Layout from '~/src/layout'
+import NotFound from './404'
 
 const Content = () => {
   const router = useRouter()
@@ -16,23 +17,36 @@ const Content = () => {
   const [content, setContent] = useState([] as Block[])
   const [isLoading, setIsLoading] = useState(false)
   const [hasError, setHasError] = useState(false)
+  const [isNotFound, setIsNotFound] = useState(false)
 
-  const { pages } = usePagesStoraged()
+  const { pages, isLoading: isLoadingPages } = usePagesStoraged()
 
   const paths = getPaths({ pages })
   const titlePath = formatedTitle(router.query.id?.toString() || '')
   const actualPath = paths?.find(path => path?.title === titlePath)
   const id = actualPath?.id
 
+  useEffect(() => {
+    if (!isLoadingPages && pages.length > 0 && router.query.id) {
+      if (actualPath) {
+        setIsNotFound(false)
+      } else {
+        setIsNotFound(true)
+        setContent([])
+      }
+    }
+  }, [isLoadingPages, pages, actualPath, router.query.id])
+
   const fetchData = useCallback(async () => {
     if (!id) return
 
     setIsLoading(true)
+    setIsNotFound(false)
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_URL_API}${id}`)
 
       if (!response.ok) {
-        throw new Error(`COUND NOT GET PAGE ID: ${id}`)
+        throw new Error(`COULD NOT GET PAGE ID: ${id}`)
       }
 
       const data = await response.json()
@@ -47,10 +61,23 @@ const Content = () => {
   }, [id])
 
   useEffect(() => {
-    fetchData()
-  }, [fetchData])
+    if (router.query.id) {
+      setHasError(false)
+      setIsNotFound(false)
+    }
+  }, [router.query.id])
 
-  if (isLoading) {
+  useEffect(() => {
+    if (id && !isNotFound) {
+      fetchData()
+    }
+  }, [id, fetchData, isNotFound])
+
+  if (isNotFound) {
+    return <NotFound />
+  }
+
+  if (isLoading || isLoadingPages) {
     return (
       <Layout>
         <SkeletonText />

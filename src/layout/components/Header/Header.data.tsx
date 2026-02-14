@@ -1,10 +1,12 @@
+import { Paths } from '~/src/enums/paths'
+
 export const items = [
   {
     name: 'Home',
-    href: '/',
+    href: Paths.HOME,
   },
   {
     name: 'About',
-    href: '/about',
+    href: Paths.ABOUT,
   },
 ]

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.div<{ hasMargin?: boolean }>`
+export const Container = styled('div')<{ hasMargin?: boolean }>`
   display: flex;
   gap: var(--spacing-basic);
   flex-direction: column;
@@ -9,12 +9,12 @@ export const Container = styled.div<{ hasMargin?: boolean }>`
   margin-top: ${({ hasMargin }) => hasMargin && '50%'};
 `
 
-export const Text = styled.p`
+export const Text = styled('p')`
   font-size: var(--font-xmedium);
   text-align: center;
 `
 
-export const RetryButton = styled.button`
+export const RetryButton = styled('button')`
   cursor: pointer;
   color: var(--green-white);
   background: none;

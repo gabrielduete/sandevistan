@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import React from 'react'
 
 import * as S from './styles'
+import { Paths } from '~/src/enums/paths'
 
 const Breadcrumb = () => {
   const router = useRouter()
@@ -17,7 +18,7 @@ const Breadcrumb = () => {
 
   return (
     <S.Container>
-      <S.Icon onClick={() => router.push('/')} />
+      <S.Icon onClick={() => router.push(Paths.HOME)} />
       {params?.map((param, index) => {
         const formatedLink = param.charAt(0).toUpperCase() + param.slice(1)
 
