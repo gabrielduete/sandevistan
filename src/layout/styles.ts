@@ -35,6 +35,7 @@ export const Content = styled('div')`
   max-width: ${breakpoints.Desktop};
   word-wrap: break-word;
   margin: 0 auto;
+  margin-bottom: 50px; // Footer height
   padding: 0 var(--spacing-basic);
   min-width: 0;
   display: flex;
