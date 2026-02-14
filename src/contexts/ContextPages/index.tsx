@@ -16,7 +16,7 @@ type PagesStoraged = {
 
 const initialContextValue: PagesStoraged = {
   pages: [],
-  isLoading: false,
+  isLoading: true,
   hasError: false,
 }
 
@@ -33,7 +33,7 @@ export const PagesStoregedProvider = ({
 }: {
   children: ReactNode
 }) => {
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
   const [hasError, setHasError] = useState(false)
   const [pages, setPages] = useState([] as Block[])
 

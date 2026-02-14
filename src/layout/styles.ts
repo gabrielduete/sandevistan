@@ -10,18 +10,17 @@ export const Container = styled('main')`
   flex-direction: column;
 `
 
-export const WrapperContent = styled('section')`
-  width: calc(100% - 100px);
-  margin-left: 280px;
+export const WrapperContent = styled('section')<{ isMenuOpen: boolean }>`
+  width: 100%;
+  padding-left: ${({ isMenuOpen }) => (isMenuOpen ? '280px' : '60px')};
   display: flex;
   margin-top: 70px;
   justify-content: center;
   align-items: center;
-  transition: width 0.3s ease, margin-left 0.3s ease;
+  transition: padding-left 0.3s ease;
 
   @media (max-width: ${breakpoints.Desktop}) {
-    width: 100%;
-    margin-left: 0;
+    padding-left: 0;
   }
 
   @media (max-width: ${breakpoints.Tablet}) {
@@ -35,6 +34,7 @@ export const Content = styled('div')`
   max-width: ${breakpoints.Desktop};
   word-wrap: break-word;
   margin: 0 auto;
+  margin-bottom: 50px; // Footer height
   padding: 0 var(--spacing-basic);
   min-width: 0;
   display: flex;
@@ -44,6 +44,19 @@ export const Content = styled('div')`
   @media (max-width: ${breakpoints.Tablet}) {
     padding: 0 var(--spacing-basic);
   }
+`
+
+export const LoadingContainer = styled('div')`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+`
+
+export const LoadingText = styled('h1')`
+  font-size: var(--font-medium);
+  color: var(--white);
 `
 
 export const Loading = styled(CircularProgress)`
